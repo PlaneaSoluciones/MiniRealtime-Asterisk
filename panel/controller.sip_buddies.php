@@ -16,7 +16,7 @@ function showlist(){
   global $db;
   // Mostrar listado
 
-  $query="select id, name, default_user from sip_buddies";
+  $query="select id, name, defaultuser from sip_buddies";
   $dbdata = db::getInstance()->getResult($query);
   echo $dbdata[0]->id;
 }
