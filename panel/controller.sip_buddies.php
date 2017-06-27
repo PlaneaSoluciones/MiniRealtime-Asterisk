@@ -19,10 +19,8 @@ function showlist(){
 function edit($id){
   if ($_POST['type'] == "edit" or $_POST['type'] == "new"){
     // Guardar cambios en base de datos
-    echo "Guardar datos en base de datos";
   }else{
     // Mostrar formulario de edicion
-    echo "Editar"; // borrar
     ?>
 
       <form action="" method="post" class="form">
