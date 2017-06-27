@@ -25,7 +25,7 @@ function edit($id){
 
       <form action="" method="post">
         <fieldset>
-          <legend>Extensi'onnn</legend>
+          <legend>Extensi'onqwe</legend>
             <label for="extension">Extensi'on</label>
             <input type="text" name="extension" id="extension" placeholder="101">
 
