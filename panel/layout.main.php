@@ -1,7 +1,7 @@
 <html>
 <head>
   <title>MiniRealtime Asterisk Panel</title>
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 

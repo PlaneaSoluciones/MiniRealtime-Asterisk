@@ -8,11 +8,11 @@ switch ($view) {
         edit($id);
         break;
     default: // List
-        list();
+        showlist();
         break;
 }
 
-function list(){
+function showlist(){
   // Mostrar listado
 
   $query="select id, name, default_user from sip_buddies";
@@ -22,13 +22,11 @@ function list(){
 function edit($id){
   if ($_POST['type'] == "edit" or $_POST['type'] == "new"){
     // Guardar cambios en base de datos
-    echo "Guardar datos en base de datos";
   }else{
     // Mostrar formulario de edicion
-    echo "Editar"; // borrar
     ?>
 
-      <form action="" method="post">
+      <form action="" method="post" class="form">
         <fieldset>
           <legend>Extensión</legend>
             <label for="extension">Extensión</label>
