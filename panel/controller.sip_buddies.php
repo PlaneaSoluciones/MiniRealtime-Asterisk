@@ -16,7 +16,7 @@ function showlist(){
   // Mostrar listado
 
   $query="select id, name, default_user from sip_buddies";
-  $sockets = db::getInstance()->getResult($query);
+  $sockets = $this->db::getInstance()->getResult($query);
   echo $sockets['id'];
 }
 
