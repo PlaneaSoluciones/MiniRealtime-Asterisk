@@ -8,12 +8,9 @@ require 'class.db.php';
     echo "Resultados: <br/>";
     //var_dump($sockets);*/
 
-    if ($_GET["module"])
-      $module = $_GET["module"];
-    if ($_GET["view"])
-      $view   = $_GET["view"];
-    if ($_GET["id"])
-      $id     = $_GET["id"];
+    $module = (isset($_GET['module']) ? $_GET['module'] : null);
+    $view   = (isset($_GET['view'])   ? $_GET['view'] : null);
+    $id     = (isset($_GET['id'])     ? $_GET['id'] : null);
 
     include 'layout.main.php';
 
