@@ -2,7 +2,7 @@
 
 switch ($view) {
     case "add":
-        edit(null);
+        edit(null, $type);
         break;
     case "edit":
         edit($id, $type);
@@ -22,7 +22,12 @@ function showlist(){
 
 function edit($id, $postType){
 
-  if ($postType == "edit" or $postType == "new"){
+  if ($postType == "store"){
+    if ($id == null){ // ADD NEW ENTRY
+
+    }else{ // EDIT ENTRY WITH ID $ID
+
+    }
     // Guardar cambios en base de datos
 
     /*INSERT INTO `sipfriends`
