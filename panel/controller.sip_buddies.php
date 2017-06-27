@@ -18,13 +18,29 @@ function showlist(){
 
   $query="select id, name, defaultuser from sip_buddies";
   $dbdata = db::getInstance()->getResult($query);
-  var_dump($dbdata);
-  foreach ($dbdata as $fila) {
-    #$key => $value) {
-    # code...
-    echo $fila["id"];
-  }
 
+    if (isset ($dbdata)){
+      ?>
+      <table>
+        <tr>
+          <th>Id/th>
+          <th>Name</th>
+          <th>Default user</th>
+          <th></th>
+        </tr>
+      <?php
+      foreach ($dbdata as $data) {
+        echo '<tr>';
+          echo '<td>'.$data['id'].'</td>';
+          echo '<td>'.$data['name'].'</td>';
+          echo '<td>'.$data['defaultuser'].'</td>';
+          echo '<td><a href="?module='.$module.'&view=edit&id='.$data['id'].'">Editar</a><a href="?module='.$module.'&view=delete&id='.$data['id'].'">Eliminar</a></td>';
+        echo '</tr>';
+      }
+      ?>
+      </table>
+      <?php
+    }
 }
 
 function edit($id, $postType){
@@ -77,5 +93,4 @@ function edit($id, $postType){
     <?php
   }
 }
-
- ?>
+?>
