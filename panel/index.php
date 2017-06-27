@@ -6,5 +6,12 @@ require 'class.db.php';
     $sockets = db::getInstance()->getResult($query);
 
     echo "Resultados: <br/>";
-    var_dump($sockets);
+    //var_dump($sockets);
+
+    $module = $_GET["module"];
+    $view   = $_GET["view"];
+    $id     = $_GET["id"];
+
+    include 'layout.menu.php';
+
  ?>
