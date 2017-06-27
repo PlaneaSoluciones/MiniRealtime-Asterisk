@@ -25,7 +25,7 @@ function edit($id){
     echo "Editar"; // borrar
     ?>
 
-      <form action="" method="post">
+      <form action="" method="post" class="form">
         <fieldset>
           <legend>Extensión</legend>
             <label for="extension">Extensión</label>
