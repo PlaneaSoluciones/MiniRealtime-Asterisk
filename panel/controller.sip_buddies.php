@@ -15,8 +15,8 @@ switch ($view) {
 function showlist(){
   // Mostrar listado
 
-  $query="select id, name, default_user from sip_buddies";
-  $sockets = db::getInstance()->getResult($query);
+  // $query="select id, name, default_user from sip_buddies";
+  // $sockets = db::getInstance()->getResult($query);
   echo "Extensiones<br>";
     foreach ($sockets as $extension) {
       echo "su puta madre " .$extension["id"]." ";
