@@ -13,10 +13,11 @@ switch ($view) {
 }
 
 function showlist(){
+  global $db;
   // Mostrar listado
 
   $query="select id, name, default_user from sip_buddies";
-  $sockets = $this->db->getInstance()->getResult($query);
+  $sockets = db::getInstance()->getResult($query);
   echo $sockets['id'];
 }
 
