@@ -13,7 +13,7 @@ switch ($view) {
 }
 
 function showlist(){
-  global $db;
+  global $db, $module;
   // Mostrar listado
 
   $query="select id, name, defaultuser from sip_buddies";
@@ -23,7 +23,7 @@ function showlist(){
       ?>
       <table>
         <tr>
-          <th>Id/th>
+          <th>Id</th>
           <th>Name</th>
           <th>Default user</th>
           <th></th>
