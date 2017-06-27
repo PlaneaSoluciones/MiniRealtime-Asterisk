@@ -18,7 +18,7 @@ function showlist(){
   $query="select id, name, default_user from sip_buddies";
   $sockets = db::getInstance()->getResult($query);
   echo "Extensiones<br>";
-    foreach ($sockets as as $key => $var) {
+    foreach ($sockets as $key => $var) {
       echo $key. " " . $var .PHP_EOL;
 
     }
