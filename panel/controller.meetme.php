@@ -55,16 +55,24 @@ function edit($id, $postType){
 
   }else{
     // Mostrar formulario de edicion
-    ?>
+    if (isset($id)){
+      $query="select id, confno, pin, adminpin from meetme where id = $id";
+      $dbdata = db::getInstance()->getResult($query);
+      $confno = $dbdata['confno'];
+    }
 
+    ?>
       <form action="" method="post" class="form">
         <fieldset>
-          <legend>Extensión</legend>
-            <label for="extension">Extensión</label>
-            <input type="text" name="extension" id="extension" placeholder="101">
+          <legend>Salas de conferencia</legend>
+            <label for="confno">Numero de extension</label>
+            <input type="text" name="confno" id="confno" placeholder="3001" value="<?php echo $confno ?>">
 
-            <label for="callerid">Caller ID</label>
-            <input type="text" name="callerid" id="callerid" placeholder="Pepito">
+            <label for="pin">PIN</label>
+            <input type="text" name="pin" id="pin" placeholder="0000">
+
+            <label for="adminpin">PIN Administrador</label>
+            <input type="text" name="adminpin" id="adminpin" placeholder="8888">
         </fieldset>
       </form>
     <?php
