@@ -17,7 +17,6 @@ function showlist(){
   // Mostrar listado
   $query="select confno, pin, adminpin from meetme";
   $dbdata = db::getInstance()->query($query);
-  var_dump($dbdata);
 
   if (isset ($dbdata)){
     ?>
@@ -26,6 +25,7 @@ function showlist(){
         <th>Numero Conf</th>
         <th>PIN</th>
         <th>Admin PIN</th>
+        <th></th>
       </tr>
     <?php
     foreach ($dbdata as $data) {
@@ -33,6 +33,7 @@ function showlist(){
         echo '<td>'.$data['confno'].'</td>';
         echo '<td>'.$data['pin'].'</td>';
         echo '<td>'.$data['adminpin'].'</td>';
+        echo '<td><a href="?module='.$module.'&view=edit&id='.$data['id'].'">Editar</a></td>';
       echo '</tr>';
     }
     ?>
