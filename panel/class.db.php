@@ -54,11 +54,12 @@
 
           if (!$result) {
             trigger_error('Invalid query: ' . $this->error);
+          }else{
+            if ($result->num_rows > 0){
+              $rows = $result->fetch_assoc();
+              return $rows;
+            } else
+              return null;
           }
-          if ($result->num_rows > 0){
-            $rows = $result->fetch_assoc();
-            return $rows;
-          } else
-            return null;
        }
    }
