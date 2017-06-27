@@ -19,10 +19,10 @@ function showlist(){
   $query="select id, name, defaultuser from sip_buddies";
   $dbdata = db::getInstance()->getResult($query);
   var_dump($dbdata);
-  foreach ($fila as $dbdata) {
+  foreach ($dbdata as $fila) {
     #$key => $value) {
     # code...
-    echo $dbdata->id;
+    echo $fila->id;
   }
 
 }
