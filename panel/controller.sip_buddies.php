@@ -19,8 +19,12 @@ function showlist(){
 
   $query="select id, name, default_user from sip_buddies";
   $sockets = db::getInstance()->getResult($query);
+<<<<<<< HEAD
+  echo $sockets[0][id];
+=======
   echo $sockets[id];
 >>>>>>> 5935056b1c1e4134caf15945637024aa465dcdbb
+>>>>>>> 3944260959da37f188362df72b90026ebad6568b
 }
 
 function edit($id){
