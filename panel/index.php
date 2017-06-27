@@ -2,11 +2,11 @@
 
 require 'class.db.php';
 
-    $query="select * from sip_buddies";
+    /*$query="select * from sip_buddies";
     $sockets = db::getInstance()->getResult($query);
 
     echo "Resultados: <br/>";
-    //var_dump($sockets);
+    //var_dump($sockets);*/
 
     $module = $_GET["module"];
     $view   = $_GET["view"];
