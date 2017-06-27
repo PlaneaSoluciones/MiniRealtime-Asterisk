@@ -1,8 +1,10 @@
 <div id="menu">
-  <a href='?module=home' class='<?php if ($module=='home') echo 'selected';?>>'>Portada</a>
-  <a href='?module=sip_buddies' class='<?php if ($module=='sip_buddies') echo 'active';?>>'>Extensiones SIP</a>
-  <a href='?module=sip_buddies' class='<?php if ($module=='queues') echo 'active';?>>'>Colas</a>
-  <a href='?module=sip_buddies' class='<?php if ($module=='meetme') echo 'active';?>>'>Salas de conferencia</a>
+  <ul>
+    <li><a href='?module=home' class='<?php if ($module=='home') echo 'selected';?>>'>Portada</a></li>
+    <li><a href='?module=sip_buddies' class='<?php if ($module=='sip_buddies') echo 'active';?>>'>Extensiones SIP</a></li>
+    <li><a href='?module=sip_buddies' class='<?php if ($module=='queues') echo 'active';?>>'>Colas</a></li>
+    <li><a href='?module=sip_buddies' class='<?php if ($module=='meetme') echo 'active';?>>'>Salas de conferencia</a></li>
+  </ul>
 </div>
 
 <div id="submenu">
