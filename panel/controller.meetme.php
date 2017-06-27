@@ -61,6 +61,10 @@ function edit($id, $postType){
       $confno = $dbdata['confno'];
       $pin = $dbdata['pin'];
       $adminpin = $dbdata['adminpin'];
+    }else{
+      $confno = null;
+      $pin = null;
+      $adminpin = null;
     }
 
     ?>
