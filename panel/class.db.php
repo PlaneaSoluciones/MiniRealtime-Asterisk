@@ -32,31 +32,29 @@
        }
 
        private function __construct() {
-       parent::__construct($this->dbHost, $this->user, $this->pass, $this->dbName);
-       if (mysqli_connect_error()) {
-           exit('Connect Error (' . mysqli_connect_errno() . ') '
-                   . mysqli_connect_error());
-       }
-       parent::set_charset('utf-8');
-
+         parent::__construct($this->dbHost, $this->user, $this->pass, $this->dbName);
+         if (mysqli_connect_error()) {
+             exit('Connect Error (' . mysqli_connect_errno() . ') '
+                     . mysqli_connect_error());
+         }
+         parent::set_charset('utf-8');
       }
+
       public function dbquery($query)
        {
            if($this->query($query))
            {
                return true;
            }
-
        }
+
        public function getResult($query)
        {
            $result = $this->query($query);
            if ($result->num_rows > 0){
-           $row = $result->fetch_assoc();
-           return $row;
+             $row = $result->fetch_assoc();
+             return $row;
            } else
-           return null;
-
-
+             return null;
        }
    }
