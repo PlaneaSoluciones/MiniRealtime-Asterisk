@@ -21,6 +21,19 @@ function edit($id){
     // Guardar cambios en base de datos
   }else{
     // Mostrar formulario de edicion
+    ?>
+
+      <form action="" method="post">
+        <fieldset>
+          <legend>Extensi'on</legend>
+            <label for="extension">Extensi'on</label>
+            <input type="text" name="extension" id="extension" placeholder="101">
+
+            <label for="cellerid">Caller ID</label>
+            <input type="text" name="cellerid" id="cellerid" placeholder="Pepito">
+        </fieldset>
+      </form>
+    <?php
   }
 }
 
