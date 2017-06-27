@@ -17,18 +17,12 @@ function showlist(){
 
   $query="select id, name, default_user from sip_buddies";
   $sockets = db::getInstance()->getResult($query);
-  echo "Extensiones<br>";
-    foreach ($sockets as $key => $var) {
-      echo $key. " " . $var .PHP_EOL;
-
-    }
-
-
-
+  echo $sockets[id];
 }
 
 function edit($id){
-  if ($_POST['type'] == "edit" or $_POST['type'] == "new"){
+  
+  if ($type == "edit" or $type == "new"){
     // Guardar cambios en base de datos
 
     /*INSERT INTO `sipfriends`
