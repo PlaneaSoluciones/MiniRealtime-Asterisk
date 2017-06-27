@@ -13,7 +13,7 @@ switch ($view) {
 }
 
 function showlist(){
-  global $db;
+  global $db, $module;
   // Mostrar listado
 
   $query="select id, name, defaultuser from sip_buddies";
