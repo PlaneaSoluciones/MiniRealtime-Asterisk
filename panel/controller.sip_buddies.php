@@ -8,11 +8,11 @@ switch ($view) {
         edit($id);
         break;
     default: // List
-        list();
+        showlist();
         break;
 }
 
-function list(){
+function showlist(){
   // Mostrar listado
 }
 
