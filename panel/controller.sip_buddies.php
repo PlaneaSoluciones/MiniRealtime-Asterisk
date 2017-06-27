@@ -17,9 +17,17 @@ function showlist(){
 
   $query="select id, name, default_user from sip_buddies";
   $sockets = db::getInstance()->getResult($query);
-    foreach ($extension as $clave => $valor) {
-      echo "El registro es $clave $valor <br/>";
+    foreach ($sockets as $extension) {
+
+
+      foreach($extension as $valor)
+      {
+      echo $valor ." ";
+      }
+    echo "<br>";
     }
+
+
 
 }
 
