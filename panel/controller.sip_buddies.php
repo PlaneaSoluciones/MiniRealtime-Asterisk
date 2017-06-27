@@ -5,7 +5,7 @@ switch ($view) {
         edit(null);
         break;
     case "edit":
-        edit($id);
+        edit($id, $type);
         break;
     default: // List
         showlist();
@@ -20,9 +20,9 @@ function showlist(){
   echo $sockets[id];
 }
 
-function edit($id){
-  
-  if ($type == "edit" or $type == "new"){
+function edit($id, $postType){
+
+  if ($postType == "edit" or $postType == "new"){
     // Guardar cambios en base de datos
 
     /*INSERT INTO `sipfriends`
