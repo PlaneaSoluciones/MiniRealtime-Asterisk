@@ -99,7 +99,7 @@ select {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     background-color: #e8eeef;
-    color:#8a97a0;
+    color:#000;
     -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
     box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
     margin-bottom: 30px;
@@ -156,4 +156,22 @@ input[type="submit"]:hover,
 input[type="button"]:hover
 {
     background: #109177;
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #cacaca;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #cacaca;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #cacaca;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #cacaca;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+   color:    #cacaca;
 }
