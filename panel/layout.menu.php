@@ -7,9 +7,8 @@
 
 <div id="submenu">
 <?php if ($module == 'sip_buddies') {?>
-  <a href='?module=sip_buddies&view=list'>Lista</a>
+  <a href='?module=sip_buddies&view=list'>Listado</a>
   <a href='?module=sip_buddies&view=add'>Anadir</a>
-  <a href='?module=sip_buddies&view=edit'>Editar</a>
 <?php } elseif ($module == 'voicemail') {?>
 
 <?php } else {?>
