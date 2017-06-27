@@ -23,7 +23,7 @@ function showlist(){
       ?>
       <table>
         <tr>
-          <th>Id/th>
+          <th>Id</th>
           <th>Name</th>
           <th>Default user</th>
           <th></th>
