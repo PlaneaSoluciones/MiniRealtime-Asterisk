@@ -16,7 +16,7 @@ function showlist(){
   global $db, $module;
   // Mostrar listado
   $query="select id, name, defaultuser from sip_buddies";
-  $dbdata = db::getInstance()->getResult($query);
+  $dbdata = db::getInstance()->query($query);
 
   if (isset ($dbdata)){
     ?>
