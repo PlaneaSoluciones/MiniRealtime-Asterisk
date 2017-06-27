@@ -30,9 +30,9 @@ function showlist(){
     <?php
     foreach ($dbdata as $data) {
       echo '<tr>';
-        echo '<td>'.$data->confno.'</td>';
-        echo '<td>'.$data->pin.'</td>';
-        echo '<td>'.$data->adminpin.'</td>';
+        echo '<td>'.$data['confno'].'</td>';
+        echo '<td>'.$data['pin'].'</td>';
+        echo '<td>'.$data['adminpin'].'</td>';
       echo '</tr>';
     }
     ?>
