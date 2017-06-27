@@ -51,10 +51,14 @@
        public function getResult($query)
        {
            $result = $this->query($query);
-           if ($result->num_rows > 0){
-             $rows = $result->fetch_assoc();
-             return $rows;
-           } else
-             return null;
+
+          if (!$result) {
+            trigger_error('Invalid query: ' . $this->error);
+          }
+          if ($result->num_rows > 0){
+            $rows = $result->fetch_assoc();
+            return $rows;
+          } else
+            return null;
        }
    }
