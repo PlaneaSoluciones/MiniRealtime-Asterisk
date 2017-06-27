@@ -14,6 +14,9 @@ switch ($view) {
 
 function list(){
   // Mostrar listado
+
+  $query="select id, name, default_user from sip_buddies";
+  $sockets = db::getInstance()->getResult($query);
 }
 
 function edit($id){
