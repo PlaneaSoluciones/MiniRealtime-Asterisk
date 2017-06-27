@@ -9,8 +9,10 @@
 
 <div id="submenu">
 <?php if ($module == 'sip_buddies') {?>
-  <a href='?module=sip_buddies&view=list'>Listado</a>
-  <a href='?module=sip_buddies&view=add'>Anadir</a>
+  <ul>
+    <li><a href='?module=sip_buddies&view=list'>Listado</a></li>
+    <li><a href='?module=sip_buddies&view=add'>Anadir</a></li>
+  </ul>
 <?php } elseif ($module == 'voicemail') {?>
 
 <?php } else {?>
