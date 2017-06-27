@@ -19,19 +19,16 @@ function list(){
 function edit($id){
   if ($_POST['type'] == "edit" or $_POST['type'] == "new"){
     // Guardar cambios en base de datos
+    echo "Guardar datos en base de datos";
   }else{
     // Mostrar formulario de edicion
+    echo "Editar"; // borrar
     ?>
 
       <form action="" method="post">
         <fieldset>
-<<<<<<< HEAD
           <legend>Extensión</legend>
             <label for="extension">Extensión</label>
-=======
-          <legend>Extensi'onqwe</legend>
-            <label for="extension">Extensi'on</label>
->>>>>>> 04f60239c04710b2b72f353e7f963725adfef3e0
             <input type="text" name="extension" id="extension" placeholder="101">
 
             <label for="cellerid">Caller ID</label>
