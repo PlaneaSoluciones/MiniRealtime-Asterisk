@@ -18,13 +18,8 @@ function showlist(){
   $query="select id, name, default_user from sip_buddies";
   $sockets = db::getInstance()->getResult($query);
     foreach ($sockets as $extension) {
+      echo $extension["id"]." ";
 
-
-      foreach($extension as $valor)
-      {
-      echo $valor ." ";
-      }
-    echo "<br>";
     }
 
 
