@@ -8,6 +8,8 @@
   <?php
     include 'layout.menu.php';
 
+    echo "Modulo ". $module;
+
     if (file_exists("controller.$module.php"))
       include "controller.$module.php";
   ?>
