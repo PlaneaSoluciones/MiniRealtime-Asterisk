@@ -18,7 +18,7 @@ function showlist(){
 
   $query="select id, name, default_user from sip_buddies";
   $dbdata = db::getInstance()->getResult($query);
-  echo $dbdata->id;
+  echo $dbdata[0]->id;
 }
 
 function edit($id, $postType){
