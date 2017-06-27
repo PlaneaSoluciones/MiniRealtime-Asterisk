@@ -15,7 +15,7 @@ switch ($view) {
 function showlist(){
   global $db;
   // Mostrar listado
-  $query="select confno, pin, adminpin from meetme";
+  $query="select id, confno, pin, adminpin from meetme";
   $dbdata = db::getInstance()->query($query);
 
   if (isset ($dbdata)){
