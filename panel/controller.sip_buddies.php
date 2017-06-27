@@ -22,7 +22,7 @@ function showlist(){
   foreach ($dbdata as $fila) {
     #$key => $value) {
     # code...
-    echo $fila->id;
+    echo $fila("id");
   }
 
 }
