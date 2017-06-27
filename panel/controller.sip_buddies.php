@@ -40,7 +40,7 @@ function showlist(){
       ?>
       </table>
       <?php
-
+    }
 }
 
 function edit($id, $postType){
