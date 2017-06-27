@@ -59,6 +59,8 @@ function edit($id, $postType){
       $query="select id, confno, pin, adminpin from meetme where id = $id";
       $dbdata = db::getInstance()->getResult($query);
       $confno = $dbdata['confno'];
+      $pin = $dbdata['pin'];
+      $adminpin = $dbdata['adminpin'];
     }
 
     ?>
@@ -69,10 +71,10 @@ function edit($id, $postType){
             <input type="text" name="confno" id="confno" placeholder="3001" value="<?php echo $confno ?>">
 
             <label for="pin">PIN</label>
-            <input type="text" name="pin" id="pin" placeholder="0000">
+            <input type="text" name="pin" id="pin" placeholder="0000" value="<?php echo $pin ?>">
 
             <label for="adminpin">PIN Administrador</label>
-            <input type="text" name="adminpin" id="adminpin" placeholder="8888">
+            <input type="text" name="adminpin" id="adminpin" placeholder="8888" value="<?php echo $adminpin ?>">
         </fieldset>
       </form>
     <?php
