@@ -1,4 +1,4 @@
-CREATE TABLE `queue_member_table` (
+CREATE TABLE `queue_members` (
  `uniqueid` int(10) unsigned NOT NULL auto_increment,
  `membername` varchar(40) default NULL,
  `queue_name` varchar(128) default NULL,
@@ -7,4 +7,4 @@ CREATE TABLE `queue_member_table` (
  `paused` int(11) default NULL,
  PRIMARY KEY  (`uniqueid`),
  UNIQUE KEY `queue_interface` (`queue_name`,`interface`)
- ) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+ ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
