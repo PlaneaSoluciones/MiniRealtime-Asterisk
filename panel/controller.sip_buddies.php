@@ -80,7 +80,7 @@ function edit($id, $postType){
     }else{
       // Mostrar formulario de edicion
       if (isset($id)){
-        $query="select id, name, callerid, secret from sip_buddies = $id";
+        $query="select id, name, callerid, secret from sip_buddies where id = $id";
         echo $query;
         $dbdata = db::getInstance()->getResult($query);
         $name = $dbdata['name'];
