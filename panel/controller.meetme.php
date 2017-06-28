@@ -14,10 +14,10 @@ switch ($view) {
 
 function showlist(){
   global $db, $module;
-  // Mostrar listado
+  // Getting element list
   $query="select id, confno, pin, adminpin from meetme";
   $dbdata = db::getInstance()->query($query);
-
+  // Showing HTML table list 
   if (isset ($dbdata)){
     ?>
     <table>
@@ -62,7 +62,7 @@ function edit($id, $postType){
     exit();
 
   }else{
-    // Mostrar formulario de edicion
+    // Getting variables from POST
     if (isset($id)){
       $query="select id, confno, pin, adminpin from meetme where id = $id";
       $dbdata = db::getInstance()->getResult($query);
@@ -74,7 +74,7 @@ function edit($id, $postType){
       $pin = null;
       $adminpin = null;
     }
-
+    // HTML form view
     ?>
       <form action="" method="post" class="form">
         <fieldset>
