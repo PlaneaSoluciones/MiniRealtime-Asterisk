@@ -52,14 +52,14 @@ function edit($id, $postType){
 
     if ($id == null){ // ADD NEW ENTRY
       $query="insert into meetme (confno, pin, adminpin) values ('$confno', '$pin', '$adminpin')";
-      $dbdata = db::getInstance()->query($query);
-
-      header('Location: ?module=meetme');
-      exit();
+      db::getInstance()->query($query);
     }else{ // EDIT ENTRY WITH ID $ID
-
+      $query="update meetme set confno = '$confno', pin = '$pin', adminpin = '$adminpin' where id = '$id'";
+      db::getInstance()->query($query);
     }
-    // Guardar cambios en base de datos
+
+    header('Location: ?module=meetme');
+    exit();
 
   }else{
     // Mostrar formulario de edicion
