@@ -81,14 +81,20 @@ function edit($id, $postType){
       // Mostrar formulario de edicion
       if (isset($id)){
         $query="select id, name, callerid, secret from sip_buddies where id = $id";
-        echo $query;
         $dbdata = db::getInstance()->getResult($query);
         $name = $dbdata['name'];
         $callerid = $dbdata['callerid'];
+        $host = $dbdata['host'];
+        $exttype = $dbdata['type'];
+        $context = $dbdata['context'];
         $secret = $dbdata['secret'];
+
       }else{
         $name = null;
         $callerid = null;
+        $host = null;
+        $type = null;
+        $context = null;
         $secret = null;
       }
 
@@ -98,11 +104,25 @@ function edit($id, $postType){
         <fieldset>
           <legend>Extensión</legend>
             <label for="extension">Extensión</label>
-            <input type="text" name="extension" id="extension" placeholder="101">
+            <input type="text" name="extension" id="extension" placeholder="101" value="<?php echo $name; ?>">
+
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" placeholder="Pepito" value="<?php echo $name; ?>">
 
             <label for="callerid">Caller ID</label>
-            <input type="text" name="callerid" id="callerid" placeholder="Pepito">
+            <input type="text" name="callerid" id="callerid" placeholder="Pepito" value="<?php echo $callerid; ?>">>
 
+            <label for="host">Host</label>
+            <input type="text" name="host" id="host" placeholder="dynamic" value="<?php echo $host; ?>">>
+
+            <label for="exttype">Type</label>
+            <input type="text" name="exttype" id="exttype" placeholder="peer" value="<?php echo $exttype; ?>">>
+
+            <label for="context">Context</label>
+            <input type="text" name="context" id="context" placeholder="inbound" value="<?php echo $context; ?>">>
+
+            <label for="secret">Secret</label>
+            <input type="text" name="secret" id="secret" placeholder="Pepito" value="<?php echo $secret; ?>">>
 
 
            <input type="hidden" name="type" value="store">
