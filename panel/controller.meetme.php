@@ -51,7 +51,7 @@ function edit($id, $postType){
     $adminpin   = (isset($_POST['adminpin'])  ? $_POST['adminpin'] : null);
 
     if ($id == null){ // ADD NEW ENTRY
-      $query="insert into meetme ('confno', 'pin', 'adminpin') values ('$confno', '$pin', '$adminpin')";
+      $query="insert into meetme (confno, pin, adminpin) values ('$confno', '$pin', '$adminpin')";
       $dbdata = db::getInstance()->query($query);
 
       header('Location: ?module=meetme');
