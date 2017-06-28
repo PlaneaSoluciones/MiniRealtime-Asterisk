@@ -81,6 +81,7 @@ function edit($id, $postType){
       // Mostrar formulario de edicion
       if (isset($id)){
         $query="select id, name, callerid, secret from sip_buddies = $id";
+        echo $query;
         $dbdata = db::getInstance()->getResult($query);
         $name = $dbdata['name'];
         $callerid = $dbdata['callerid'];
