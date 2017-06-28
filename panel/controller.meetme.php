@@ -79,6 +79,8 @@ function edit($id, $postType){
 
             <label for="adminpin">PIN Administrador</label>
             <input type="text" name="adminpin" id="adminpin" placeholder="8888" value="<?php echo $adminpin ?>">
+
+            <input type="button" value="Enviar">
         </fieldset>
       </form>
     <?php
