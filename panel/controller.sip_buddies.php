@@ -33,7 +33,7 @@ function showlist(){
         echo '<td>'.$data['id'].'</td>';
         echo '<td>'.$data['name'].'</td>';
         echo '<td>'.$data['defaultuser'].'</td>';
-        echo '<td><a href="?module='.$module.'&view=edit&id='.$data['id'].'">Editar</a><a href="?module='.$module.'&view=delete&id='.$data['id'].'">Eliminar</a></td>';
+        echo '<td><a href="?module='.$module.'&view=edit&id='.$data['id'].'">Editar</a> | <a href="?module='.$module.'&view=delete&id='.$data['id'].'">Eliminar</a></td>';
       echo '</tr>';
     }
     ?>
