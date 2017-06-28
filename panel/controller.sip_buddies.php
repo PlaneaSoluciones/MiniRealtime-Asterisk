@@ -23,8 +23,8 @@ function showlist(){
     <table>
       <tr>
         <th>Id</th>
-        <th>Name</th>
-        <th>Caller Id</th>
+        <th>Nº extensión</th>
+        <th>Nombre</th>
         <th>Secret</th>
         <th></th>
       </tr>
@@ -106,10 +106,7 @@ function edit($id, $postType){
             <label for="extension">Extensión</label>
             <input type="text" name="extension" id="extension" placeholder="101" value="<?php echo $name; ?>">
 
-            <label for="name">Name</label>
-            <input type="text" name="name" id="name" placeholder="Pepito" value="<?php echo $name; ?>">
-
-            <label for="callerid">Caller ID</label>
+            <label for="callerid">Nombre</label>
             <input type="text" name="callerid" id="callerid" placeholder="Pepito" value="<?php echo $callerid; ?>">
 
             <label for="host">Host</label>
