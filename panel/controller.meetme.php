@@ -46,8 +46,16 @@ function showlist(){
 function edit($id, $postType){
 
   if ($postType == "store"){
-    if ($id == null){ // ADD NEW ENTRY
+    $confno   = (isset($_POST['confno'])  ? $_POST['confno'] : null);
+    $pin      = (isset($_POST['pin'])  ? $_POST['pin'] : null);
+    $adminpin   = (isset($_POST['adminpin'])  ? $_POST['adminpin'] : null);
 
+    if ($id == null){ // ADD NEW ENTRY
+      $query="insert into meetme ('confno', 'pin', 'adminpin') values ('$confno', '$pin', '$adminpin')";
+      $dbdata = db::getInstance()->query($query);
+
+      header('Location: ?module=meetme');
+      exit();
     }else{ // EDIT ENTRY WITH ID $ID
 
     }
@@ -80,7 +88,8 @@ function edit($id, $postType){
             <label for="adminpin">PIN Administrador</label>
             <input type="text" name="adminpin" id="adminpin" placeholder="8888" value="<?php echo $adminpin ?>">
 
-            <input type="button" value="Enviar">
+            <input type="hidden" name="type" value="store">
+            <input type="submit" value="Enviar">
         </fieldset>
       </form>
     <?php
