@@ -83,7 +83,7 @@ function edit($id, $postType){
         $query="select id, name, callerid, host, type, context, secret from sip_buddies where id = $id";
         $dbdata = db::getInstance()->getResult($query);
         $name = $dbdata['name'];
-        $callerid = $dbdata['callerid'];
+        $callerid = ereg_replace("[0-9]", "", $dbdata['callerid']);
         $host = $dbdata['host'];
         $exttype = $dbdata['type'];
         $context = $dbdata['context'];
@@ -96,7 +96,7 @@ function edit($id, $postType){
         $type = null;
         $context = null;
         $secret = null;
-      }
+
 
       ?>
 
