@@ -97,7 +97,7 @@ function edit($id, $postType){
         $context = null;
         $secret = null;
 
-
+      }
       ?>
 
       <form action="" method="post" class="form">
@@ -105,7 +105,7 @@ function edit($id, $postType){
           <legend>Extensión</legend>
             <label for="extension">Extensión</label>
             <input type="text" name="extension" id="extension" placeholder="101" value="<?php echo $name; ?>">
-<?php echo $callerid; ?>
+<?php  ?>
             <label for="callerid">Nombre</label>
             <input type="text" name="callerid" id="callerid" placeholder="Pepito" value="<?php echo $callerid; ?>">
 
