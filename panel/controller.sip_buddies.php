@@ -47,11 +47,21 @@ function showlist(){
 function edit($id, $postType){
 
     if ($postType == "store"){
-      if ($id == null){ // ADD NEW ENTRY
+      // $confno   = (isset($_POST['confno'])  ? $_POST['confno'] : null);
+      // $pin      = (isset($_POST['pin'])  ? $_POST['pin'] : null);
+      // $adminpin   = (isset($_POST['adminpin'])  ? $_POST['adminpin'] : null);
+      //
+      // if ($id == null){ // ADD NEW ENTRY
+      //   $query="insert into meetme (confno, pin, adminpin) values ('$confno', '$pin', '$adminpin')";
+      //   db::getInstance()->query($query);
+      // }else{ // EDIT ENTRY WITH ID $ID
+      //   $query="update meetme set confno = '$confno', pin = '$pin', adminpin = '$adminpin' where id = '$id'";
+      //   db::getInstance()->query($query);
+      // }
+      //
+      header('Location: ?module=sip_buddies');
+      exit();
 
-      }else{ // EDIT ENTRY WITH ID $ID
-
-      }
       // Guardar cambios en base de datos
 
       /*INSERT INTO `sipfriends`
@@ -80,7 +90,7 @@ function edit($id, $postType){
     }else{
       // Mostrar formulario de edicion
       if (isset($id)){
-        $query="select id, name, callerid, host, type, context, secret from sip_buddies where id = $id";
+        $query="select id, name, callerid, host, type, context, secret, transport, dtmfmode, insecure, disallow, allow,  mailbox,callgroup,pickupgroup,language,`call-limit` from sip_buddies where id = $id";
         $dbdata = db::getInstance()->getResult($query);
         $name = $dbdata['name'];
         $callerid = ereg_replace("[0-9]", "", $dbdata['callerid']);
@@ -88,14 +98,34 @@ function edit($id, $postType){
         $exttype = $dbdata['type'];
         $context = $dbdata['context'];
         $secret = $dbdata['secret'];
+        $transport = $dbdata['transport'];
+        $dtmfmode = $dbdata['dtmfmode'];
+        $insecure = $dbdata['insecure'];
+        $disallow = $dbdata['disallow'];
+        $allow = $dbdata['allow'];
+        $mailbox = $dbdata['name']."@mailbox";
+        $callgroup = $dbdata['callgroup'];
+        $pickupgroup = $dbdata['pickupgroup'];
+        $language = $dbdata['language'];
+        $calllimit = $dbdata['call-limit'];
 
       }else{
         $name = null;
         $callerid = null;
         $host = null;
-        $type = null;
+        $exttype = null;
         $context = null;
         $secret = null;
+        $transport = null;
+        $dtmfmode = null;
+        $insecure = null;
+        $disallow = null;
+        $allow = null;
+        $mailbox = null;
+        $callgroup = null;
+        $pickupgroup = null;
+        $language = null;
+        $calllimit = null;
 
       }
        echo $callerid;
@@ -122,8 +152,38 @@ function edit($id, $postType){
             <label for="secret">Secret</label>
             <input type="text" name="secret" id="secret" placeholder="Pepito" value="<?php echo $secret; ?>">
 
+            <label for="transport">Transport</label>
+            <input type="text" name="transport" id="transport" placeholder="dynamic" value="<?php echo $transport; ?>">
+
+            <label for="dtmfmode">DTMF mode</label>
+            <input type="text" name="dtmfmode" id="dtmfmode" placeholder="peer" value="<?php echo $dtmfmode; ?>">
+
+            <label for="insecure">Insecure</label>
+            <input type="text" name="insecure" id="insecure" placeholder="inbound" value="<?php echo $insecure; ?>">
+
+            <label for="disallow">Disallow</label>
+            <input type="text" name="disallow" id="disallow" placeholder="Pepito" value="<?php echo $disallow; ?>">
+
+            <label for="allow">Allow</label>
+            <input type="text" name="allow" id="allow" placeholder="dynamic" value="<?php echo $allow; ?>">
+
+            <label for="mailbox">Mailbox</label>
+            <input type="text" name="mailbox" id="mailbox" placeholder="inbound" value="<?php echo $mailbox; ?>">
+
+            <label for="callgroup">Callgroup</label>
+            <input type="text" name="callgroup" id="callgroup" placeholder="Pepito" value="<?php echo $callgroup; ?>">
+
+            <label for="pickupgroup">Pickupgroup</label>
+            <input type="text" name="pickupgroup" id="pickupgroup" placeholder="peer" value="<?php echo $pickupgroup; ?>">
+
+            <label for="language">Language</label>
+            <input type="text" name="language" id="language" placeholder="inbound" value="<?php echo $language; ?>">
+
+            <label for="calllimit">Calllimit</label>
+            <input type="text" name="calllimit" id="calllimit" placeholder="Pepito" value="<?php echo $calllimit; ?>">
 
            <input type="hidden" name="type" value="store">
+           <input type="submit" value="Enviar">
         </fieldset>
       </form>
     <?php
