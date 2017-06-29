@@ -98,7 +98,7 @@ function edit($id, $postType){
     $periodic_announce_frequency   = (isset($_POST['periodic_announce_frequency'])  ? $_POST['periodic_announce_frequency'] : null);
     $announce   = (isset($_POST['announce'])  ? $_POST['announce'] : null);
     $announce_frequency   = (isset($_POST['announce_frequency'])  ? $_POST['announce_frequency'] : null);
-    $announce_holdtime   = (isset($_POST['$announce_holdtime'])  ? $_POST['$announce_holdtime'] : null);
+    $announce_holdtime   = (isset($_POST['announce_holdtime'])  ? $_POST['announce_holdtime'] : null);
     $queue_youarenext   = (isset($_POST['queue_youarenext'])  ? $_POST['queue_youarenext'] : null);
     $queue_thereare   = (isset($_POST['queue_thereare'])  ? $_POST['queue_thereare'] : null);
     $queue_callswaiting   = (isset($_POST['queue_callswaiting'])  ? $_POST['queue_callswaiting'] : null);
