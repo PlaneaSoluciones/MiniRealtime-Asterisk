@@ -1,4 +1,4 @@
-CREATE TABLE `queues` (
+CREATE TABLE `queues_table` (
  `name` varchar(128) NOT NULL,
  `musiconhold` varchar(128) default NULL,
  `announce` varchar(128) default NULL,
@@ -37,5 +37,3 @@ CREATE TABLE `queues` (
  `setinterfacevar` tinyint(1) default NULL,
  PRIMARY KEY  (`name`)
  ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
- 

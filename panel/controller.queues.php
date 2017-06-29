@@ -111,11 +111,13 @@ function edit($id, $postType){
 
 
     if ($id == null){ // ADD NEW ENTRY
-      $query="insert into queues (name,timeout,retry,wrapuptime,maxlen,strategy,ringinuse,weight,periodic_announce,periodic_announce_frequency,announce,announce_frequency,'announce_holdtime',queue_youarenext,queue_thereare,queue_callswaiting,queue_holdtime,queue_minutes,queue_seconds,queue_lessthan,queue_thankyou,queue_reporthold) values ('$name','$timeout','$retry','$wrapuptime','$maxlen','$strategy','$ringinuse','$weight','$periodic_announce','$periodic_announce_frequency','$announce','$announce_frequency','$announce_holdtime','$queue_youarenext','$queue_thereare','$queue_callswaiting','$queue_holdtime','$queue_minutes','$queue_seconds','$queue_lessthan','$queue_thankyou','$queue_reporthold')";
+      $query="insert into queues_table (name,timeout,retry,wrapuptime,maxlen,strategy,ringinuse,weight,periodic_announce,periodic_announce_frequency,announce,announce_frequency,'announce_holdtime',queue_youarenext,queue_thereare,queue_callswaiting,queue_holdtime,queue_minutes,queue_seconds,queue_lessthan,queue_thankyou,queue_reporthold) values ('$name','$timeout','$retry','$wrapuptime','$maxlen','$strategy','$ringinuse','$weight','$periodic_announce','$periodic_announce_frequency','$announce','$announce_frequency','$announce_holdtime','$queue_youarenext','$queue_thereare','$queue_callswaiting','$queue_holdtime','$queue_minutes','$queue_seconds','$queue_lessthan','$queue_thankyou','$queue_reporthold')";
       db::getInstance()->query($query);
     }else{ // EDIT ENTRY WITH ID $ID
-      $query="update queues set name = '$name', timeout = '$timeout', retry = '$retry', wrapuptime = '$wrapuptime', maxlen = '$maxlen', strategy = '$strategy', ringinuse = '$ringinuse', weight = '$weight', periodic_announce = '$periodic_announce', periodic_announce_frequency = '$periodic_announce_frequency', announce = '$announce', announce_frequency = '$announce_frequency', 'announce_holdtime' = '$announce_holdtime', queue_youarenext = '$queue_youarenext', queue_thereare = '$queue_thereare', queue_callswaiting = '$queue_callswaiting', queue_holdtime = '$queue_holdtime', queue_minutes = '$queue_minutes', queue_seconds = '$queue_seconds', queue_lessthan = '$queue_lessthan', queue_thankyou = '$queue_thankyou', queue_reporthold = '$queue_reporthold' where id = '$id'";
-      db::getInstance()->query($query);
+      $query="update queues_table set name = '$name', timeout = '$timeout', retry = '$retry', wrapuptime = '$wrapuptime', maxlen = '$maxlen', strategy = '$strategy', ringinuse = '$ringinuse', weight = '$weight', periodic_announce = '$periodic_announce', periodic_announce_frequency = '$periodic_announce_frequency', announce = '$announce', announce_frequency = '$announce_frequency', 'announce_holdtime' = '$announce_holdtime', queue_youarenext = '$queue_youarenext', queue_thereare = '$queue_thereare', queue_callswaiting = '$queue_callswaiting', queue_holdtime = '$queue_holdtime', queue_minutes = '$queue_minutes', queue_seconds = '$queue_seconds', queue_lessthan = '$queue_lessthan', queue_thankyou = '$queue_thankyou', queue_reporthold = '$queue_reporthold' where id = '$id'";
+      db::getInstance()->query($query
+
+
     }
 
     header('Location: ?module=queues');
@@ -124,7 +126,7 @@ function edit($id, $postType){
   }else{
     // Getting variables from POST
     if (isset($id)){
-      $query="select name,timeout,retry,wrapuptime,maxlen,strategy,ringinuse,weight,periodic_announce,periodic_announce_frequency,announce,announce_frequency,announce_holdtime,queue_youarenext,queue_thereare,queue_callswaiting,queue_holdtime,queue_minutes,queue_seconds,queue_lessthan,queue_thankyou,queue_reporthold from queues where id = $id";
+      $query="select name,timeout,retry,wrapuptime,maxlen,strategy,ringinuse,weight,periodic_announce,periodic_announce_frequency,announce,announce_frequency,announce_holdtime,queue_youarenext,queue_thereare,queue_callswaiting,queue_holdtime,queue_minutes,queue_seconds,queue_lessthan,queue_thankyou,queue_reporthold from queues_table where id = $id";
       $dbdata = db::getInstance()->getResult($query);
 
       $name = $dbdata['name'];
