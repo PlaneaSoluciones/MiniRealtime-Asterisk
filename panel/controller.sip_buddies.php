@@ -67,6 +67,7 @@ function edit($id, $postType){
               //$query="select id, name, callerid, host, type, context, secret, transport, dtmfmode, nat, disallow, allow, callgroup, pickupgroup, language, `call-limit` from sip_buddies where id = $id";
       if ($id == null){ // ADD NEW ENTRY
          $query="insert into sip_buddies (name, callerid, host, type, context, secret, transport, dtmfmode, nat, disallow, allow, callgroup, pickupgroup, language, `call-limit`) values ('$name', '$callerid', '$host', '$exttype', '$context', '$secret', '$transport', '$dtmfmode', '$nat', '$disallow', '$allow', '$callgroup', '$pickupgroup', '$language', '$calllimit'";
+         echo $query;
          db::getInstance()->query($query);
       }else{ // EDIT ENTRY WITH ID $ID
       //   $query="update sip_buddies set confno = '$confno', pin = '$pin', adminpin = '$adminpin' where id = '$id'";
