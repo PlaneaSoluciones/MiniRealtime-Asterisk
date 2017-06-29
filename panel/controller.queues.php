@@ -116,9 +116,9 @@ function edit($id, $postType){
     }else{ // EDIT ENTRY WITH ID $ID
       //$query="update queues_table set name = '$name', timeout = '$timeout', retry = '$retry', wrapuptime = '$wrapuptime', maxlen = '$maxlen', strategy = '$strategy', ringinuse = '$ringinuse', weight = '$weight', periodic_announce = '$periodic_announce', periodic_announce_frequency = '$periodic_announce_frequency', announce = '$announce', announce_frequency = '$announce_frequency', announce_holdtime = '$announce_holdtime', queue_youarenext = '$queue_youarenext', queue_thereare = '$queue_thereare', queue_callswaiting = '$queue_callswaiting', queue_holdtime = '$queue_holdtime', queue_minutes = '$queue_minutes', queue_seconds = '$queue_seconds', queue_lessthan = '$queue_lessthan', queue_thankyou = '$queue_thankyou', queue_reporthold = '$queue_reporthold' where id = '$id'";
 
-      $query="update queues_table set name = '$name', timeout = '$timeout', retry = '$retry', wrapuptime = '$wrapuptime' where id = '$id'";
+      $query="update queues_table set name = '$name', timeout = '$timeout', retry = '$retry', wrapuptime = '$wrapuptime', where id = '$id'";
       db::getInstance()->query($query);
-      $query="update queues_table set maxlen = '$maxlen', strategy = '$strategy', ringinuse = '$ringinuse', weight = '$weight' where id = '$id'";
+      $query="update queues_table set maxlen = '$maxlen', strategy = '$strategy', ringinuse = '$ringinuse', weight = '$weight', where id = '$id'";
       db::getInstance()->query($query);
       $query="update queues_table set periodic_announce = '$periodic_announce', periodic_announce_frequency = '$periodic_announce_frequency', announce = '$announce', announce_frequency = '$announce_frequency' where id = '$id'";
       db::getInstance()->query($query);
