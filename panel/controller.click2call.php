@@ -57,7 +57,7 @@ function call($ext1, $ext2){
 
     // HTML form view
     ?>
-      <form action="" method="get" class="form">
+      <form action="" method="post" class="form">
         <fieldset>
           <legend>Click 2 Call</legend>
             <label for="ext1">Numero de extension</label>
