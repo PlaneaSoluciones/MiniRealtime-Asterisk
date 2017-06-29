@@ -90,7 +90,7 @@ function edit($id, $postType){
     }else{
       // Mostrar formulario de edicion
       if (isset($id)){
-        $query="select id, name, callerid, host, type, context, secret, transport, dtmfmode, insecure, disallow, allow,  mailbox,callgroup,pickupgroup,language,`call-limit` from sip_buddies where id = $id";
+        $query="select id, name, callerid, host, type, context, secret, transport, dtmfmode, insecure, disallow, allow,  callgroup, pickupgroup, language, `call-limit` from sip_buddies where id = $id";
         $dbdata = db::getInstance()->getResult($query);
         $name = $dbdata['name'];
         $callerid = ereg_replace("[0-9]", "", $dbdata['callerid']);
@@ -103,7 +103,6 @@ function edit($id, $postType){
         $insecure = $dbdata['insecure'];
         $disallow = $dbdata['disallow'];
         $allow = $dbdata['allow'];
-        $mailbox = $dbdata['mailbox']."@mailbox";
         $callgroup = $dbdata['callgroup'];
         $pickupgroup = $dbdata['pickupgroup'];
         $language = $dbdata['language'];
@@ -121,7 +120,6 @@ function edit($id, $postType){
         $insecure = null;
         $disallow = null;
         $allow = null;
-        $mailbox = null;
         $callgroup = null;
         $pickupgroup = null;
         $language = null;
@@ -166,9 +164,6 @@ function edit($id, $postType){
 
             <label for="allow">Allow</label>
             <input type="text" name="allow" id="allow" placeholder="dynamic" value="<?php echo $allow; ?>">
-
-            <label for="mailbox">Mailbox</label>
-            <input type="text" name="mailbox" id="mailbox" placeholder="inbound" value="<?php echo $mailbox; ?>">
 
             <label for="callgroup">Callgroup</label>
             <input type="text" name="callgroup" id="callgroup" placeholder="Pepito" value="<?php echo $callgroup; ?>">
