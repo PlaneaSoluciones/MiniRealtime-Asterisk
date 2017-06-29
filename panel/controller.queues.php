@@ -124,7 +124,7 @@ function edit($id, $postType){
   }else{
     // Getting variables from POST
     if (isset($id)){
-      $query="select name,timeout,retry,wrapuptime,maxlen,strategy,ringinuse,weight,periodic_announce,periodic_announce_frequency,announce,announce_frequency,"announce-holdtime",queue_youarenext,queue_thereare,queue_callswaiting,queue_holdtime,queue_minutes,queue_seconds,queue_lessthan,queue_thankyou,queue_reporthold from queues where id = $id";
+      $query="select name,timeout,retry,wrapuptime,maxlen,strategy,ringinuse,weight,periodic_announce,periodic_announce_frequency,announce,announce_frequency,announce\-holdtime,queue_youarenext,queue_thereare,queue_callswaiting,queue_holdtime,queue_minutes,queue_seconds,queue_lessthan,queue_thankyou,queue_reporthold from queues where id = $id";
       $dbdata = db::getInstance()->getResult($query);
 
       $name = $dbdata['name'];
