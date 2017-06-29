@@ -103,7 +103,7 @@ function edit($id, $postType){
         $insecure = $dbdata['insecure'];
         $disallow = $dbdata['disallow'];
         $allow = $dbdata['allow'];
-        $mailbox = $dbdata['name']."@mailbox";
+        $mailbox = $dbdata['mailbox']."@mailbox";
         $callgroup = $dbdata['callgroup'];
         $pickupgroup = $dbdata['pickupgroup'];
         $language = $dbdata['language'];
