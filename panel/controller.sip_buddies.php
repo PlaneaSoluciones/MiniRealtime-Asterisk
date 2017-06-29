@@ -168,10 +168,10 @@ function edit($id, $postType){
             <input type="text" name="transport" id="transport" placeholder="udp" value="<?php echo $transport; ?>">
 
             <label for="dtmfmode">DTMF mode</label>
-            <select>
-             <option name="dtmfmode" id="dtmfmode" value="rfc2833"<?php if ($dtmfmode == "rfc2833") { echo ' selected="selected"';} ?>>rfc2833</option>
-             <option name="dtmfmode" id="dtmfmode" value="info"<?php if ($dtmfmode == "info") { echo ' selected="selected"';} ?>>info</option>
-             <option name="dtmfmode" id="dtmfmode" value="inband"<?php if ($dtmfmode == "inband") { echo ' selected="selected"';} ?>>inband</option>
+            <select name="dtmfmode" id="dtmfmode">
+             <option value="rfc2833"<?php if ($dtmfmode == "rfc2833") { echo ' selected="selected"';} ?>>rfc2833</option>
+             <option value="info"<?php if ($dtmfmode == "info") { echo ' selected="selected"';} ?>>info</option>
+             <option value="inband"<?php if ($dtmfmode == "inband") { echo ' selected="selected"';} ?>>inband</option>
             </select>
 
             <label for="nat">NAT</label>
