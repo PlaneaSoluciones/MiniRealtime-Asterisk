@@ -98,7 +98,7 @@ function edit($id, $postType){
     $periodic_announce_frequency   = (isset($_POST['periodic_announce_frequency'])  ? $_POST['periodic_announce_frequency'] : null);
     $announce   = (isset($_POST['announce'])  ? $_POST['announce'] : null);
     $announce_frequency   = (isset($_POST['announce_frequency'])  ? $_POST['announce_frequency'] : null);
-    $announce_holdtime   = (isset($_POST['announce'])  ? $_POST['announce'] : null);
+    $announce_holdtime   = (isset($_POST['$announce_holdtime'])  ? $_POST['$announce_holdtime'] : null);
     $queue_youarenext   = (isset($_POST['queue_youarenext'])  ? $_POST['queue_youarenext'] : null);
     $queue_thereare   = (isset($_POST['queue_thereare'])  ? $_POST['queue_thereare'] : null);
     $queue_callswaiting   = (isset($_POST['queue_callswaiting'])  ? $_POST['queue_callswaiting'] : null);
@@ -217,8 +217,8 @@ function edit($id, $postType){
 
             <label for="ringinuse">Sonar si el agente ya esta hablando</label>
             <select name="ringinuse" id="ringinuse">
-             <option value="yes"<?php if ($ringinuse == "yes") { echo ' selected="selected"';} ?>>Si</option>
-             <option value="no"<?php if ($ringinuse == "no") { echo ' selected="selected"';} ?>>no</option>
+             <option value="1"<?php if ($ringinuse == "1") { echo ' selected="selected"';} ?>>Si</option>
+             <option value="0"<?php if ($ringinuse == "0") { echo ' selected="selected"';} ?>>no</option>
             </select>
 
             <label for="weight">Importancia</label>
