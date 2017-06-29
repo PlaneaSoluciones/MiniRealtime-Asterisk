@@ -163,7 +163,13 @@ function edit($id, $postType){
 
             <label for="announce_frequency">Frecuencia anuncio de posicion en la cola</label>
             <input type="text" name="announce_frequency" placeholder="60" value="<?php echo $announce_frequency ?>">
-            
+
+            <label for="announce-holdtime">Anunciar tiempo estimado</label>
+            <select name="announce-holdtime" id="announce-holdtime">
+             <option value="yes"<?php if ($announceholdtime == "yes") { echo ' selected="selected"';} ?>>Si</option>
+             <option value="no"<?php if ($announceholdtime == "no") { echo ' selected="selected"';} ?>>No</option>
+             <option value="once"<?php if ($announceholdtime == "once") { echo ' selected="selected"';} ?>>1 vez</option>
+            </select>
 
             <label for="queue_youarenext">Mensaje "Eres el siguiente"</label>
             <input type="text" name="queue_youarenext" placeholder="queue_youarenext" value="<?php echo $queue_youarenext ?>">
