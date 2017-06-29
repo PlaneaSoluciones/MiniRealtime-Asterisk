@@ -86,30 +86,92 @@ function showlist(){
 function edit($id, $postType){
 
   if ($postType == "store"){
-    $confno   = (isset($_POST['confno'])  ? $_POST['confno'] : null);
-    $pin      = (isset($_POST['pin'])  ? $_POST['pin'] : null);
+    $name   = (isset($_POST['name'])  ? $_POST['name'] : null);
+    $timeout   = (isset($_POST['timeout'])  ? $_POST['timeout'] : null);
+    $retry   = (isset($_POST['retry'])  ? $_POST['retry'] : null);
+    $wrapuptime   = (isset($_POST['wrapuptime'])  ? $_POST['wrapuptime'] : null);
+    $maxlen   = (isset($_POST['maxlen'])  ? $_POST['maxlen'] : null);
+    $strategy   = (isset($_POST['strategy'])  ? $_POST['strategy'] : null);
+    $ringinuse   = (isset($_POST['ringinuse'])  ? $_POST['ringinuse'] : null);
+    $weight   = (isset($_POST['weight'])  ? $_POST['weight'] : null);
+    $periodic_announce   = (isset($_POST['periodic_announce'])  ? $_POST['periodic_announce'] : null);
+    $periodic_announce_frequency   = (isset($_POST['periodic_announce_frequency'])  ? $_POST['periodic_announce_frequency'] : null);
+    $announce   = (isset($_POST['announce'])  ? $_POST['announce'] : null);
+    $announce_frequency   = (isset($_POST['announce_frequency'])  ? $_POST['announce_frequency'] : null);
+    $announceholdtime   = (isset($_POST['announce'])  ? $_POST['announce'] : null);
+    $queue_youarenext   = (isset($_POST['queue_youarenext'])  ? $_POST['queue_youarenext'] : null);
+    $queue_thereare   = (isset($_POST['queue_thereare'])  ? $_POST['queue_thereare'] : null);
+    $queue_callswaiting   = (isset($_POST['queue_callswaiting'])  ? $_POST['queue_callswaiting'] : null);
+    $queue_holdtime   = (isset($_POST['queue_holdtime'])  ? $_POST['queue_holdtime'] : null);
+    $queue_minutes   = (isset($_POST['queue_minutes'])  ? $_POST['queue_minutes'] : null);
+    $queue_seconds   = (isset($_POST['queue_seconds'])  ? $_POST['queue_seconds'] : null);
+    $queue_lessthan   = (isset($_POST['queue_lessthan'])  ? $_POST['queue_lessthan'] : null);
+    $queue_thankyou   = (isset($_POST['queue_thankyou'])  ? $_POST['queue_thankyou'] : null);
+    $queue_reporthold   = (isset($_POST['queue_reporthold'])  ? $_POST['queue_reporthold'] : null);
+
 
     if ($id == null){ // ADD NEW ENTRY
-      $query="insert into meetme (confno, pin) values ('$confno', '$pin')";
+      $query="insert into queues (name,timeout,retry,wrapuptime,maxlen,strategy,ringinuse,weight,periodic_announce,periodic_announce_frequency,announce,announce_frequency,announce-holdtime,queue_youarenext,queue_thereare,queue_callswaiting,queue_holdtime,queue_minutes,queue_seconds,queue_lessthan,queue_thankyou,queue_reporthold) values ('$name','$timeout','$retry','$wrapuptime','$maxlen','$strategy','$ringinuse','$weight','$periodic_announce','$periodic_announce_frequency','$announce','$announce_frequency','$announce-holdtime','$queue_youarenext','$queue_thereare','$queue_callswaiting','$queue_holdtime','$queue_minutes','$queue_seconds','$queue_lessthan','$queue_thankyou','$queue_reporthold')";
       db::getInstance()->query($query);
     }else{ // EDIT ENTRY WITH ID $ID
-      $query="update meetme set confno = '$confno', pin = '$pin', where id = '$id'";
+      $query="update queues set name = '$name', timeout = '$timeout', retry = '$retry', wrapuptime = '$wrapuptime', maxlen = '$maxlen', strategy = '$strategy', ringinuse = '$ringinuse', weight = '$weight', periodic_announce = '$periodic_announce', periodic_announce_frequency = '$periodic_announce_frequency', announce = '$announce', announce_frequency = '$announce_frequency', announce-holdtime` = '$announceholdtime', queue_youarenext = '$queue_youarenext', queue_thereare = '$queue_thereare', queue_callswaiting = '$queue_callswaiting', queue_holdtime = '$queue_holdtime', queue_minutes = '$queue_minutes', queue_seconds = '$queue_seconds', queue_lessthan = '$queue_lessthan', queue_thankyou = '$queue_thankyou', queue_reporthold = '$queue_reporthold' where id = '$id'";
       db::getInstance()->query($query);
     }
 
-    header('Location: ?module=meetme');
+    header('Location: ?module='.$module);
     exit();
 
   }else{
     // Getting variables from POST
     if (isset($id)){
-      $query="select id, confno, pin from meetme where id = $id";
+      $query="select name,timeout,retry,wrapuptime,maxlen,strategy,ringinuse,weight,periodic_announce,periodic_announce_frequency,announce,announce_frequency,announce-holdtime,queue_youarenext,queue_thereare,queue_callswaiting,queue_holdtime,queue_minutes,queue_seconds,queue_lessthan,queue_thankyou,queue_reporthold from meetme where id = $id";
       $dbdata = db::getInstance()->getResult($query);
-      $confno = $dbdata['confno'];
-      $pin = $dbdata['pin'];
+
+      $name = $dbdata['name'];
+      $timeout = $dbdata['timeout'];
+      $retry = $dbdata['retry'];
+      $wrapuptime = $dbdata['wrapuptime'];
+      $maxlen = $dbdata['maxlen'];
+      $strategy = $dbdata['strategy'];
+      $ringinuse = $dbdata['ringinuse'];
+      $weight = $dbdata['weight'];
+      $periodic_announce = $dbdata['periodic_announce'];
+      $periodic_announce_frequency = $dbdata['periodic_announce_frequency'];
+      $announce = $dbdata['announce'];
+      $announce_frequency = $dbdata['announce_frequency'];
+      $announceholdtime = $dbdata['announce-holdtime'];
+      $queue_youarenext = $dbdata['queue_youarenext'];
+      $queue_thereare = $dbdata['queue_thereare'];
+      $queue_callswaiting = $dbdata['queue_callswaiting'];
+      $queue_holdtime = $dbdata['queue_holdtime'];
+      $queue_minutes = $dbdata['queue_minutes'];
+      $queue_seconds = $dbdata['queue_seconds'];
+      $queue_lessthan = $dbdata['queue_lessthan'];
+      $queue_thankyou = $dbdata['queue_thankyou'];
+      $queue_reporthold = $dbdata['queue_reporthold'];
     }else{
-      $confno = null;
-      $pin = null;
+      $name = null;
+      $timeout = null;
+      $retry = null;
+      $wrapuptime = null;
+      $maxlen = null;
+      $strategy = null;
+      $ringinuse = null;
+      $weight = null;
+      $periodic_announce = null;
+      $periodic_announce_frequency = null;
+      $announce = null;
+      $announce_frequency = null;
+      $announceholdtime = null;
+      $queue_youarenext = null;
+      $queue_thereare = null;
+      $queue_callswaiting = null;
+      $queue_holdtime = null;
+      $queue_minutes = null;
+      $queue_seconds = null;
+      $queue_lessthan = null;
+      $queue_thankyou = null;
+      $queue_reporthold = null;
     }
     // HTML form view
     ?>
@@ -198,16 +260,6 @@ function edit($id, $postType){
             <label for="queue_reporthold">Mensaje "En espera"</label>
             <input type="text" name="queue_reporthold" placeholder="queue_reporthold" value="<?php echo $queue_reporthold ?>">
 
-            <label for="weight">Importancia</label>
-            <input type="text" name="weight" placeholder="0" value="<?php echo $weight ?>">
-
-            <label for="weight">Importancia</label>
-            <input type="text" name="weight" placeholder="0" value="<?php echo $weight ?>">
-
-            <label for="weight">Importancia</label>
-            <input type="text" name="weight" placeholder="0" value="<?php echo $weight ?>">
-
-
 
             <input type="hidden" name="type" value="store">
             <input type="submit" value="Enviar">
@@ -216,5 +268,6 @@ function edit($id, $postType){
     <?php
   }
 }
+
 
  ?>
