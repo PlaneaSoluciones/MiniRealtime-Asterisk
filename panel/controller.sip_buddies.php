@@ -93,7 +93,7 @@ function edit($id, $postType){
         $name = null;
         $callerid = null;
         $host = null;
-        $type = null;
+        $exttype = null;
         $context = null;
         $secret = null;
 
