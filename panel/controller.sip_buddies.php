@@ -155,9 +155,9 @@ function edit($id, $postType){
             <label for="dtmfmode">DTMF mode</label>
             <input type="text" name="dtmfmode" id="dtmfmode" placeholder="combo box {rfc2833,info,inband}" value="<?php echo $dtmfmode; ?>">
             <select>
-             <option name="dtmfmode" id="dtmfmode" value="rfc2833"<?php echo ($dtmfmode == "rfc2833") ? ' selected="selected"'; ?>>rfc2833</option>
-             <option name="dtmfmode" id="dtmfmode" value="info"<?php echo ($dtmfmode == "info") ? ' selected="selected"'; ?>>info</option>
-             <option name="dtmfmode" id="dtmfmode" value="inband"<?php echo ($dtmfmode == "inband") ? ' selected="selected"'; ?>>inband</option>
+             <option name="dtmfmode" id="dtmfmode" value="rfc2833"<?php if ($dtmfmode == "rfc2833") { echo ' selected="selected"';} ?>>rfc2833</option>
+             <option name="dtmfmode" id="dtmfmode" value="info"<?php if ($dtmfmode == "info") { echo ' selected="selected"';} ?>>info</option>
+             <option name="dtmfmode" id="dtmfmode" value="inband"<?php if ($dtmfmode == "inband") { echo ' selected="selected"';} ?>>inband</option>
             </select>
 
             <label for="nat">NAT</label>
