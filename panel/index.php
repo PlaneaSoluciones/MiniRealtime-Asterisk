@@ -15,6 +15,8 @@ require 'class.db.php';
 
     //POST ROUTES
     $type   = (isset($_POST['type'])  ? $_POST['type'] : null);
+    $ext1   = (isset($_POST['ext1'])   ? $_POST['ext1'] : null);
+    $ext2   = (isset($_POST['ext2'])   ? $_POST['ext2'] : null);
 
     include 'layout.main.php';
 

@@ -15,7 +15,7 @@ switch ($view) {
 function showlist(){
   global $db, $module;
   // Getting element list
-  $query="select id, confno, pin, adminpin from meetme";
+  $query="select id, confno, pin from meetme";
   $dbdata = db::getInstance()->query($query);
   // Showing HTML table list 
   if (isset ($dbdata)){
@@ -24,7 +24,6 @@ function showlist(){
       <tr>
         <th>Numero Conf</th>
         <th>PIN</th>
-        <th>Admin PIN</th>
         <th></th>
       </tr>
     <?php
@@ -32,7 +31,6 @@ function showlist(){
       echo '<tr>';
         echo '<td>'.$data['confno'].'</td>';
         echo '<td>'.$data['pin'].'</td>';
-        echo '<td>'.$data['adminpin'].'</td>';
         echo '<td><a href="?module='.$module.'&view=edit&id='.$data['id'].'">Editar</a> | <a href="?module='.$module.'&view=delete&id='.$data['id'].'">Eliminar</a></td>';
       echo '</tr>';
     }
@@ -48,13 +46,12 @@ function edit($id, $postType){
   if ($postType == "store"){
     $confno   = (isset($_POST['confno'])  ? $_POST['confno'] : null);
     $pin      = (isset($_POST['pin'])  ? $_POST['pin'] : null);
-    $adminpin   = (isset($_POST['adminpin'])  ? $_POST['adminpin'] : null);
 
     if ($id == null){ // ADD NEW ENTRY
-      $query="insert into meetme (confno, pin, adminpin) values ('$confno', '$pin', '$adminpin')";
+      $query="insert into meetme (confno, pin) values ('$confno', '$pin')";
       db::getInstance()->query($query);
     }else{ // EDIT ENTRY WITH ID $ID
-      $query="update meetme set confno = '$confno', pin = '$pin', adminpin = '$adminpin' where id = '$id'";
+      $query="update meetme set confno = '$confno', pin = '$pin', where id = '$id'";
       db::getInstance()->query($query);
     }
 
@@ -64,15 +61,13 @@ function edit($id, $postType){
   }else{
     // Getting variables from POST
     if (isset($id)){
-      $query="select id, confno, pin, adminpin from meetme where id = $id";
+      $query="select id, confno, pin from meetme where id = $id";
       $dbdata = db::getInstance()->getResult($query);
       $confno = $dbdata['confno'];
       $pin = $dbdata['pin'];
-      $adminpin = $dbdata['adminpin'];
     }else{
       $confno = null;
       $pin = null;
-      $adminpin = null;
     }
     // HTML form view
     ?>
@@ -84,9 +79,6 @@ function edit($id, $postType){
 
             <label for="pin">PIN</label>
             <input type="text" name="pin" id="pin" placeholder="0000" value="<?php echo $pin ?>">
-
-            <label for="adminpin">PIN Administrador</label>
-            <input type="text" name="adminpin" id="adminpin" placeholder="8888" value="<?php echo $adminpin ?>">
 
             <input type="hidden" name="type" value="store">
             <input type="submit" value="Enviar">
