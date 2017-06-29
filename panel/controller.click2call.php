@@ -60,10 +60,10 @@ function call($ext1, $ext2){
       <form action="?module=click2call&view=call" method="post" class="form">
         <fieldset>
           <legend>Click 2 Call</legend>
-            <label for="ext1">Numero de extension</label>
+            <label for="ext1">Ext. Recepcion</label>
             <input type="text" name="ext1" id="ext1" placeholder="101">
 
-            <label for="ext2">PIN</label>
+            <label for="ext2">Ext. destino</label>
             <input type="text" name="ext2" id="ext2" placeholder="102">
 
             <input type="hidden" name="type" value="call">
