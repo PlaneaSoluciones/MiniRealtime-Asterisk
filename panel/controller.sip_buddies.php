@@ -90,7 +90,7 @@ function edit($id, $postType){
     }else{
       // Mostrar formulario de edicion
       if (isset($id)){
-        $query="select id, name, callerid, host, type, context, secret, transport, dtmfmode, insecure, disallow, allow,  callgroup, pickupgroup, language, `call-limit` from sip_buddies where id = $id";
+        $query="select id, name, callerid, host, type, context, secret, transport, dtmfmode, nat, disallow, allow, callgroup, pickupgroup, language, `call-limit` from sip_buddies where id = $id";
         $dbdata = db::getInstance()->getResult($query);
         $name = $dbdata['name'];
         $callerid = ereg_replace("[0-9]", "", $dbdata['callerid']);
@@ -100,7 +100,7 @@ function edit($id, $postType){
         $secret = $dbdata['secret'];
         $transport = $dbdata['transport'];
         $dtmfmode = $dbdata['dtmfmode'];
-        $insecure = $dbdata['insecure'];
+        $nat = $dbdata['nat'];
         $disallow = $dbdata['disallow'];
         $allow = $dbdata['allow'];
         $callgroup = $dbdata['callgroup'];
@@ -117,7 +117,7 @@ function edit($id, $postType){
         $secret = null;
         $transport = null;
         $dtmfmode = null;
-        $insecure = null;
+        $nat = null;
         $disallow = null;
         $allow = null;
         $callgroup = null;
@@ -126,7 +126,6 @@ function edit($id, $postType){
         $calllimit = null;
 
       }
-       echo $callerid;
       ?>
 
       <form action="" method="post" class="form">
@@ -136,46 +135,46 @@ function edit($id, $postType){
             <input type="text" name="extension" id="extension" placeholder="101" value="<?php echo $name; ?>">
 
             <label for="callerid">Nombre</label>
-            <input type="text" name="callerid" id="callerid" placeholder="Pepito" value="<?php echo $callerid; ?>">
+            <input type="text" name="callerid" id="callerid" placeholder="Nombre" value="<?php echo $callerid; ?>">
 
             <label for="host">Host</label>
             <input type="text" name="host" id="host" placeholder="dynamic" value="<?php echo $host; ?>">
 
             <label for="exttype">Type</label>
-            <input type="text" name="exttype" id="exttype" placeholder="peer" value="<?php echo $exttype; ?>">
+            <input type="text" name="exttype" id="exttype" placeholder="friend" value="<?php echo $exttype; ?>">
 
             <label for="context">Context</label>
-            <input type="text" name="context" id="context" placeholder="inbound" value="<?php echo $context; ?>">
+            <input type="text" name="context" id="context" placeholder="internas" value="<?php echo $context; ?>">
 
             <label for="secret">Secret</label>
-            <input type="text" name="secret" id="secret" placeholder="Pepito" value="<?php echo $secret; ?>">
+            <input type="text" name="secret" id="secret" placeholder="contraseña" value="<?php echo $secret; ?>">
 
             <label for="transport">Transport</label>
-            <input type="text" name="transport" id="transport" placeholder="dynamic" value="<?php echo $transport; ?>">
+            <input type="text" name="transport" id="transport" placeholder="udp" value="<?php echo $transport; ?>">
 
             <label for="dtmfmode">DTMF mode</label>
-            <input type="text" name="dtmfmode" id="dtmfmode" placeholder="peer" value="<?php echo $dtmfmode; ?>">
+            <input type="text" name="dtmfmode" id="dtmfmode" placeholder="combo box {rfc2833,info,inband}" value="<?php echo $dtmfmode; ?>">
 
-            <label for="insecure">Insecure</label>
-            <input type="text" name="insecure" id="insecure" placeholder="inbound" value="<?php echo $insecure; ?>">
+            <label for="nat">NAT</label>
+            <input type="text" name="nat" id="nat" placeholder="force_rport,comedia" value="<?php echo $nat; ?>">
 
             <label for="disallow">Disallow</label>
-            <input type="text" name="disallow" id="disallow" placeholder="Pepito" value="<?php echo $disallow; ?>">
+            <input type="text" name="disallow" id="disallow" placeholder="all" value="<?php echo $disallow; ?>">
 
             <label for="allow">Allow</label>
-            <input type="text" name="allow" id="allow" placeholder="dynamic" value="<?php echo $allow; ?>">
+            <input type="text" name="allow" id="allow" placeholder="alaw,ulaw,g729" value="<?php echo $allow; ?>">
 
             <label for="callgroup">Callgroup</label>
-            <input type="text" name="callgroup" id="callgroup" placeholder="Pepito" value="<?php echo $callgroup; ?>">
+            <input type="text" name="callgroup" id="callgroup" placeholder="1" value="<?php echo $callgroup; ?>">
 
             <label for="pickupgroup">Pickupgroup</label>
-            <input type="text" name="pickupgroup" id="pickupgroup" placeholder="peer" value="<?php echo $pickupgroup; ?>">
+            <input type="text" name="pickupgroup" id="pickupgroup" placeholder="1" value="<?php echo $pickupgroup; ?>">
 
             <label for="language">Language</label>
-            <input type="text" name="language" id="language" placeholder="inbound" value="<?php echo $language; ?>">
+            <input type="text" name="language" id="language" placeholder="es" value="<?php echo $language; ?>">
 
             <label for="calllimit">Calllimit</label>
-            <input type="text" name="calllimit" id="calllimit" placeholder="Pepito" value="<?php echo $calllimit; ?>">
+            <input type="text" name="calllimit" id="calllimit" placeholder="9" value="<?php echo $calllimit; ?>">
 
            <input type="hidden" name="type" value="store">
            <input type="submit" value="Enviar">
