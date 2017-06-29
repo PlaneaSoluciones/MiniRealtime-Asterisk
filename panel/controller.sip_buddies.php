@@ -103,7 +103,6 @@ function edit($id, $postType){
         $insecure = $dbdata['insecure'];
         $disallow = $dbdata['disallow'];
         $allow = $dbdata['allow'];
-        $canreinvite = $dbdata['canreinvite'];
         $mailbox = $dbdata['name']."@mailbox";
         $callgroup = $dbdata['callgroup'];
         $pickupgroup = $dbdata['pickupgroup'];
@@ -122,7 +121,6 @@ function edit($id, $postType){
         $insecure = null;
         $disallow = null;
         $allow = null;
-        $canreinvite = null;
         $mailbox = null;
         $callgroup = null;
         $pickupgroup = null;
@@ -168,9 +166,6 @@ function edit($id, $postType){
 
             <label for="allow">Allow</label>
             <input type="text" name="allow" id="allow" placeholder="dynamic" value="<?php echo $allow; ?>">
-
-            <label for="canreinvite">Can reinvite?</label>
-            <input type="text" name="canreinvite" id="canreinvite" placeholder="peer" value="<?php echo $canreinvite; ?>">
 
             <label for="mailbox">Mailbox</label>
             <input type="text" name="mailbox" id="mailbox" placeholder="inbound" value="<?php echo $mailbox; ?>">
