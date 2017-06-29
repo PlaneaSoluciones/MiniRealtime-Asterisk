@@ -70,10 +70,10 @@ function edit($id, $postType){
          echo $query;
          db::getInstance()->query($query);
       }else{ // EDIT ENTRY WITH ID $ID
-      //   $query="update sip_buddies set confno = '$confno', pin = '$pin', adminpin = '$adminpin' where id = '$id'";
-      //   db::getInstance()->query($query);
+         $query="update sip_buddies set name = '$name', callerid = '$callerid', host = '$host', type = '$exttype', context = '$context', secret = '$secret', transport = '$transport', dtmfmode = '$dtmfmode', nat = '$nat', disallow = '$disallow', allow = '$allow', callgroup = '$callgroup', pickupgroup = '$pickupgroup', language = '$language', `call-limit` = '$calllimit' where id = '$id'";
+         db::getInstance()->query($query);
       }
-      //
+      echo $query;
       //header('Location: ?module=sip_buddies');
       //exit();
 
