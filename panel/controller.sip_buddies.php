@@ -177,7 +177,7 @@ function edit($id, $postType){
             <input type="text" name="nat" id="nat" placeholder="force_rport,comedia" value="<?php echo $nat; ?>">
 
             <label for="disallow">Disallow</label>
-            <input type="text" name="disallow" id="disallow" placeholder="all" value="<?php echo $disallow; ?>">
+            <input type="text" name="disallow" id="disallow" placeholder="" value="<?php echo $disallow; ?>">
 
             <label for="allow">Allow</label>
             <input type="text" name="allow" id="allow" placeholder="alaw,ulaw,g729" value="<?php echo $allow; ?>">
