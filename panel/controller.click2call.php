@@ -24,7 +24,7 @@ function call($ext1, $ext2){
     #specify the channel (extension) you want to receive the call requests with
     #e.g. SIP/XXX, IAX2/XXXX, ZAP/XXXX, local/1NXXNXXXXXX@from-internal, etc
     #$strChannel = "local/1NXXNXXXXXX@from-internal";Use this for your cell phone Number;
-    $strChannel = "SIP/".$ext1;
+    $strChannel = "local/".$ext1."@internas";
     #specify the context to make the outgoing call from.  By default, AAH uses from-internal
     #Using from-internal will make you outgoing dialing rules apply
     $strContext = "internas";
