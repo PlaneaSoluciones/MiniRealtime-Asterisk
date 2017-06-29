@@ -47,20 +47,34 @@ function showlist(){
 function edit($id, $postType){
 
     if ($postType == "store"){
-      // $confno   = (isset($_POST['confno'])  ? $_POST['confno'] : null);
-      // $pin      = (isset($_POST['pin'])  ? $_POST['pin'] : null);
-      // $adminpin   = (isset($_POST['adminpin'])  ? $_POST['adminpin'] : null);
-      //
-      // if ($id == null){ // ADD NEW ENTRY
-      //   $query="insert into meetme (confno, pin, adminpin) values ('$confno', '$pin', '$adminpin')";
+      //id, , , , , , , , , , , , , ,
+      $name   = (isset($_POST['name'])  ? $_POST['name'] : null);
+      $callerid      = (isset($_POST['callerid'])  ? $_POST['callerid'] : null);
+      $host   = (isset($_POST['host'])  ? $_POST['host'] : null);
+      $exttype   = (isset($_POST['exttype'])  ? $_POST['exttype'] : null);
+      $context      = (isset($_POST['context'])  ? $_POST['context'] : null);
+      $secret   = (isset($_POST['secret'])  ? $_POST['secret'] : null);
+      $transport   = (isset($_POST['transport'])  ? $_POST['transport'] : null);
+      $dtmfmode      = (isset($_POST['dtmfmode'])  ? $_POST['dtmfmode'] : null);
+      $nat   = (isset($_POST['nat'])  ? $_POST['nat'] : null);
+      $disallow   = (isset($_POST['disallow'])  ? $_POST['disallow'] : null);
+      $allow      = (isset($_POST['allow'])  ? $_POST['allow'] : null);
+      $callgroup   = (isset($_POST['callgroup'])  ? $_POST['callgroup'] : null);
+      $pickupgroup   = (isset($_POST['pickupgroup'])  ? $_POST['pickupgroup'] : null);
+      $language      = (isset($_POST['language'])  ? $_POST['language'] : null);
+      $calllimit   = (isset($_POST['calllimit'])  ? $_POST['calllimit'] : null);
+
+              //$query="select id, name, callerid, host, type, context, secret, transport, dtmfmode, nat, disallow, allow, callgroup, pickupgroup, language, `call-limit` from sip_buddies where id = $id";
+      if ($id == null){ // ADD NEW ENTRY
+         $query="insert into sip_buddies (name, callerid, host, type, context, secret, transport, dtmfmode, nat, disallow, allow, callgroup, pickupgroup, language, `call-limit`) values ('$name', '$callerid', '$host', '$exttype', '$context', '$secret', '$transport', '$dtmfmode', '$nat', '$disallow', '$allow', '$callgroup', '$pickupgroup', '$language', '$calllimit'";
+         db::getInstance()->query($query);
+      }else{ // EDIT ENTRY WITH ID $ID
+      //   $query="update sip_buddies set confno = '$confno', pin = '$pin', adminpin = '$adminpin' where id = '$id'";
       //   db::getInstance()->query($query);
-      // }else{ // EDIT ENTRY WITH ID $ID
-      //   $query="update meetme set confno = '$confno', pin = '$pin', adminpin = '$adminpin' where id = '$id'";
-      //   db::getInstance()->query($query);
-      // }
+      }
       //
-      header('Location: ?module=sip_buddies');
-      exit();
+      //header('Location: ?module=sip_buddies');
+      //exit();
 
       // Guardar cambios en base de datos
 
@@ -153,7 +167,6 @@ function edit($id, $postType){
             <input type="text" name="transport" id="transport" placeholder="udp" value="<?php echo $transport; ?>">
 
             <label for="dtmfmode">DTMF mode</label>
-            <input type="text" name="dtmfmode" id="dtmfmode" placeholder="combo box {rfc2833,info,inband}" value="<?php echo $dtmfmode; ?>">
             <select>
              <option name="dtmfmode" id="dtmfmode" value="rfc2833"<?php if ($dtmfmode == "rfc2833") { echo ' selected="selected"';} ?>>rfc2833</option>
              <option name="dtmfmode" id="dtmfmode" value="info"<?php if ($dtmfmode == "info") { echo ' selected="selected"';} ?>>info</option>
