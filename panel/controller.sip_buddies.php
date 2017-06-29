@@ -66,7 +66,7 @@ function edit($id, $postType){
 
               //$query="select id, name, callerid, host, type, context, secret, transport, dtmfmode, nat, disallow, allow, callgroup, pickupgroup, language, `call-limit` from sip_buddies where id = $id";
       if ($id == null){ // ADD NEW ENTRY
-         $query="insert into sip_buddies (name, callerid, host, type, context, secret, transport, dtmfmode, nat, disallow, allow, callgroup, pickupgroup, language, `call-limit`) values ('$name', '$callerid', '$host', '$exttype', '$context', '$secret', '$transport', '$dtmfmode', '$nat', '$disallow', '$allow', '$callgroup', '$pickupgroup', '$language', '$calllimit'";
+         $query="insert into sip_buddies (name, callerid, host, type, context, secret, transport, dtmfmode, nat, disallow, allow, callgroup, pickupgroup, language, `call-limit`) values ('$name', '$callerid', '$host', '$exttype', '$context', '$secret', '$transport', '$dtmfmode', '$nat', '$disallow', '$allow', '$callgroup', '$pickupgroup', '$language', '$calllimit')";
          echo $query;
          db::getInstance()->query($query);
       }else{ // EDIT ENTRY WITH ID $ID
@@ -146,8 +146,8 @@ function edit($id, $postType){
       <form action="" method="post" class="form">
         <fieldset>
           <legend>Extensión</legend>
-            <label for="extension">Extensión</label>
-            <input type="text" name="extension" id="extension" placeholder="101" value="<?php echo $name; ?>">
+            <label for="name">Extensión</label>
+            <input type="text" name="name" id="name" placeholder="101" value="<?php echo $name; ?>">
 
             <label for="callerid">Nombre</label>
             <input type="text" name="callerid" id="callerid" placeholder="Nombre" value="<?php echo $callerid; ?>">
