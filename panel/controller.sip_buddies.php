@@ -47,7 +47,6 @@ function showlist(){
 function edit($id, $postType){
 
     if ($postType == "store"){
-      //id, , , , , , , , , , , , , ,
       $name   = (isset($_POST['name'])  ? $_POST['name'] : null);
       $callerid      = (isset($_POST['callerid'])  ? $_POST['callerid'] : null);
       $host   = (isset($_POST['host'])  ? $_POST['host'] : null);
@@ -64,7 +63,6 @@ function edit($id, $postType){
       $language      = (isset($_POST['language'])  ? $_POST['language'] : null);
       $calllimit   = (isset($_POST['calllimit'])  ? $_POST['calllimit'] : null);
 
-              //$query="select id, name, callerid, host, type, context, secret, transport, dtmfmode, nat, disallow, allow, callgroup, pickupgroup, language, `call-limit` from sip_buddies where id = $id";
       if ($id == null){ // ADD NEW ENTRY
          $query="insert into sip_buddies (name, callerid, host, type, context, secret, transport, dtmfmode, nat, disallow, allow, callgroup, pickupgroup, language, `call-limit`) values ('$name', '$callerid', '$host', '$exttype', '$context', '$secret', '$transport', '$dtmfmode', '$nat', '$disallow', '$allow', '$callgroup', '$pickupgroup', '$language', '$calllimit')";
          echo $query;
