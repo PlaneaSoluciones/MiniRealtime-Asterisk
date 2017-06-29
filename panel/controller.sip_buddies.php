@@ -73,34 +73,8 @@ function edit($id, $postType){
          $query="update sip_buddies set name = '$name', callerid = '$callerid', host = '$host', type = '$exttype', context = '$context', secret = '$secret', transport = '$transport', dtmfmode = '$dtmfmode', nat = '$nat', disallow = '$disallow', allow = '$allow', callgroup = '$callgroup', pickupgroup = '$pickupgroup', language = '$language', `call-limit` = '$calllimit' where id = '$id'";
          db::getInstance()->query($query);
       }
-      echo $dtmfmode ."<br/>". $query;
-      //header('Location: ?module=sip_buddies');
-      //exit();
-
-      // Guardar cambios en base de datos
-
-      /*INSERT INTO `sipfriends`
-      (`id`, `name`, `ipaddr`, `port`, `regseconds`, `defaultuser`, `fullcontact`, `regserver`, `useragent`, `lastms`, `host`, `type`, `context`, `permit`, `deny`, `secret`, `md5secret`, `remotesecret`, `transport`, `dtmfmode`, `directmedia`, `nat`, `callgroup`, `pickupgroup`, `language`, `allow`, `disallow`, `insecure`, `trustrpid`, `progressinband`, `promiscredir`, `useclientcode`, `accountcode`, `setvar`, `callerid`, `amaflags`, `callcounter`, `busylevel`, `allowoverlap`, `allowsubscribe`, `videosupport`, `maxcallbitrate`, `rfc2833compensate`, `mailbox`, `session-timers`, `session-expires`, `session-minse`, `session-refresher`, `t38pt_usertpsource`, `regexten`, `fromdomain`, `fromuser`, `qualify`, `defaultip`, `rtptimeout`, `rtpholdtimeout`, `sendrpid`, `outboundproxy`, `callbackextension`, `registertrying`, `timert1`, `timerb`, `qualifyfreq`, `constantssrc`, `contactpermit`, `contactdeny`, `usereqphone`, `textsupport`, `faxdetect`, `buggymwi`, `auth`, `fullname`, `trunkname`, `cid_number`, `callingpres`, `mohinterpret`, `mohsuggest`, `parkinglot`, `hasvoicemail`, `subscribemwi`, `vmexten`, `autoframing`, `rtpkeepalive`, `call-limit`, `g726nonstandard`, `ignoresdpversion`, `allowtransfer`, `dynamic`) VALUES
-      */
-      //(1, '300', '', 0, 1363805200, '300', 'sip:300@192.168.20.6:55612^3Bob', NULL, 'Bria Android 2.2.1', 26, 'dynamic', 'peer', 'inbound', '', NULL, '300', NULL, NULL, 'udp', 'rfc2833', NULL, NULL, NULL, NULL, NULL, 'alaw', NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, '300', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '300@default', NULL, NULL, NULL, NULL, NULL, '300', NULL, '300', '5000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'yes', NULL, NULL, NULL, '', '300', NULL, '300', NULL, NULL, NULL, NULL, 'yes', 'yes', NULL, NULL, 300, 2, NULL, NULL, 'yes', 'yes');
-
-      // name, defaultuser, fromuser = $name
-      // callerid = "<Pepito> ($name)"
-      // host = "dynamic"
-      // type = "peer"
-      // context = "inbound"
-      // secret = $password
-      // transport = "udp"
-      // dtmfmode = {rfc2833,info,inband}
-      // insecure = "port,invite"
-      // disallow = "all"
-      // allow = {alaw;ulaw;g729}
-      // canreinvite = {yes,nonat,update}
-      // mailbox = $name."@mailbox"
-      // callgroup = 0
-      // pickupgroup = 0
-      // language = "es"
-      // call-limit = 10
+      header('Location: ?module=sip_buddies');
+      exit();
 
     }else{
       // Mostrar formulario de edicion
