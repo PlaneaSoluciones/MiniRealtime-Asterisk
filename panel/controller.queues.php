@@ -59,7 +59,7 @@ switch ($view) {
 function showlist(){
   global $db, $module;
   // Getting element list
-  $query="select id, name from queues";
+  $query="select id, name from queues_table";
   $dbdata = db::getInstance()->query($query);
   // Showing HTML table list
   if (isset ($dbdata)){
