@@ -98,7 +98,7 @@ function edit($id, $postType){
     $periodic_announce_frequency   = (isset($_POST['periodic_announce_frequency'])  ? $_POST['periodic_announce_frequency'] : null);
     $announce   = (isset($_POST['announce'])  ? $_POST['announce'] : null);
     $announce_frequency   = (isset($_POST['announce_frequency'])  ? $_POST['announce_frequency'] : null);
-    $announceholdtime   = (isset($_POST['announce'])  ? $_POST['announce'] : null);
+    $announce_holdtime   = (isset($_POST['announce'])  ? $_POST['announce'] : null);
     $queue_youarenext   = (isset($_POST['queue_youarenext'])  ? $_POST['queue_youarenext'] : null);
     $queue_thereare   = (isset($_POST['queue_thereare'])  ? $_POST['queue_thereare'] : null);
     $queue_callswaiting   = (isset($_POST['queue_callswaiting'])  ? $_POST['queue_callswaiting'] : null);
@@ -111,10 +111,10 @@ function edit($id, $postType){
 
 
     if ($id == null){ // ADD NEW ENTRY
-      $query="insert into queues (name,timeout,retry,wrapuptime,maxlen,strategy,ringinuse,weight,periodic_announce,periodic_announce_frequency,announce,announce_frequency,'announce-holdtime',queue_youarenext,queue_thereare,queue_callswaiting,queue_holdtime,queue_minutes,queue_seconds,queue_lessthan,queue_thankyou,queue_reporthold) values ('$name','$timeout','$retry','$wrapuptime','$maxlen','$strategy','$ringinuse','$weight','$periodic_announce','$periodic_announce_frequency','$announce','$announce_frequency','$announceholdtime','$queue_youarenext','$queue_thereare','$queue_callswaiting','$queue_holdtime','$queue_minutes','$queue_seconds','$queue_lessthan','$queue_thankyou','$queue_reporthold')";
+      $query="insert into queues (name,timeout,retry,wrapuptime,maxlen,strategy,ringinuse,weight,periodic_announce,periodic_announce_frequency,announce,announce_frequency,'announce_holdtime',queue_youarenext,queue_thereare,queue_callswaiting,queue_holdtime,queue_minutes,queue_seconds,queue_lessthan,queue_thankyou,queue_reporthold) values ('$name','$timeout','$retry','$wrapuptime','$maxlen','$strategy','$ringinuse','$weight','$periodic_announce','$periodic_announce_frequency','$announce','$announce_frequency','$announce_holdtime','$queue_youarenext','$queue_thereare','$queue_callswaiting','$queue_holdtime','$queue_minutes','$queue_seconds','$queue_lessthan','$queue_thankyou','$queue_reporthold')";
       db::getInstance()->query($query);
     }else{ // EDIT ENTRY WITH ID $ID
-      $query="update queues set name = '$name', timeout = '$timeout', retry = '$retry', wrapuptime = '$wrapuptime', maxlen = '$maxlen', strategy = '$strategy', ringinuse = '$ringinuse', weight = '$weight', periodic_announce = '$periodic_announce', periodic_announce_frequency = '$periodic_announce_frequency', announce = '$announce', announce_frequency = '$announce_frequency', 'announce-holdtime' = '$announceholdtime', queue_youarenext = '$queue_youarenext', queue_thereare = '$queue_thereare', queue_callswaiting = '$queue_callswaiting', queue_holdtime = '$queue_holdtime', queue_minutes = '$queue_minutes', queue_seconds = '$queue_seconds', queue_lessthan = '$queue_lessthan', queue_thankyou = '$queue_thankyou', queue_reporthold = '$queue_reporthold' where id = '$id'";
+      $query="update queues set name = '$name', timeout = '$timeout', retry = '$retry', wrapuptime = '$wrapuptime', maxlen = '$maxlen', strategy = '$strategy', ringinuse = '$ringinuse', weight = '$weight', periodic_announce = '$periodic_announce', periodic_announce_frequency = '$periodic_announce_frequency', announce = '$announce', announce_frequency = '$announce_frequency', 'announce_holdtime' = '$announce_holdtime', queue_youarenext = '$queue_youarenext', queue_thereare = '$queue_thereare', queue_callswaiting = '$queue_callswaiting', queue_holdtime = '$queue_holdtime', queue_minutes = '$queue_minutes', queue_seconds = '$queue_seconds', queue_lessthan = '$queue_lessthan', queue_thankyou = '$queue_thankyou', queue_reporthold = '$queue_reporthold' where id = '$id'";
       db::getInstance()->query($query);
     }
 
@@ -124,7 +124,7 @@ function edit($id, $postType){
   }else{
     // Getting variables from POST
     if (isset($id)){
-      $query="select name,timeout,retry,wrapuptime,maxlen,strategy,ringinuse,weight,periodic_announce,periodic_announce_frequency,announce,announce_frequency,'announce-holdtime' as 'announceholdtime',queue_youarenext,queue_thereare,queue_callswaiting,queue_holdtime,queue_minutes,queue_seconds,queue_lessthan,queue_thankyou,queue_reporthold from queues where id = $id";
+      $query="select name,timeout,retry,wrapuptime,maxlen,strategy,ringinuse,weight,periodic_announce,periodic_announce_frequency,announce,announce_frequency,announce_holdtime,queue_youarenext,queue_thereare,queue_callswaiting,queue_holdtime,queue_minutes,queue_seconds,queue_lessthan,queue_thankyou,queue_reporthold from queues where id = $id";
       $dbdata = db::getInstance()->getResult($query);
 
       $name = $dbdata['name'];
@@ -139,7 +139,7 @@ function edit($id, $postType){
       $periodic_announce_frequency = $dbdata['periodic_announce_frequency'];
       $announce = $dbdata['announce'];
       $announce_frequency = $dbdata['announce_frequency'];
-      $announceholdtime = $dbdata['announceholdtime'];
+      $announce_holdtime = $dbdata['announce_holdtime'];
       $queue_youarenext = $dbdata['queue_youarenext'];
       $queue_thereare = $dbdata['queue_thereare'];
       $queue_callswaiting = $dbdata['queue_callswaiting'];
@@ -162,7 +162,7 @@ function edit($id, $postType){
       $periodic_announce_frequency = null;
       $announce = null;
       $announce_frequency = null;
-      $announceholdtime = null;
+      $announce_holdtime = null;
       $queue_youarenext = null;
       $queue_thereare = null;
       $queue_callswaiting = null;
@@ -226,11 +226,11 @@ function edit($id, $postType){
             <label for="announce_frequency">Frecuencia anuncio de posicion en la cola</label>
             <input type="text" name="announce_frequency" placeholder="60" value="<?php echo $announce_frequency ?>">
 
-            <label for="announce-holdtime">Anunciar tiempo estimado</label>
-            <select name="announce-holdtime" id="announce-holdtime">
-             <option value="yes"<?php if ($announceholdtime == "yes") { echo ' selected="selected"';} ?>>Si</option>
-             <option value="no"<?php if ($announceholdtime == "no") { echo ' selected="selected"';} ?>>No</option>
-             <option value="once"<?php if ($announceholdtime == "once") { echo ' selected="selected"';} ?>>1 vez</option>
+            <label for="announce_holdtime">Anunciar tiempo estimado</label>
+            <select name="announce_holdtime" id="announce_holdtime">
+             <option value="yes"<?php if ($announce_holdtime == "yes") { echo ' selected="selected"';} ?>>Si</option>
+             <option value="no"<?php if ($announce_holdtime == "no") { echo ' selected="selected"';} ?>>No</option>
+             <option value="once"<?php if ($announce_holdtime == "once") { echo ' selected="selected"';} ?>>1 vez</option>
             </select>
 
             <label for="queue_youarenext">Mensaje "Eres el siguiente"</label>
