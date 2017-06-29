@@ -90,7 +90,7 @@ function edit($id, $postType){
     }else{
       // Mostrar formulario de edicion
       if (isset($id)){
-        $query="select id, name, callerid, host, type, context, secret, transport, dtmfmode, insecure, disallow, allow, canreinvite, mailbox,callgroup,pickupgroup,language,`call-limit` from sip_buddies where id = $id";
+        $query="select id, name, callerid, host, type, context, secret, transport, dtmfmode, insecure, disallow, allow,  mailbox,callgroup,pickupgroup,language,`call-limit` from sip_buddies where id = $id";
         $dbdata = db::getInstance()->getResult($query);
         $name = $dbdata['name'];
         $callerid = ereg_replace("[0-9]", "", $dbdata['callerid']);
