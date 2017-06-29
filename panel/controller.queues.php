@@ -118,7 +118,7 @@ function edit($id, $postType){
       db::getInstance()->query($query);
     }
 
-    header('Location: ?module='.$module);
+    header('Location: ?module=queues');
     exit();
 
   }else{
