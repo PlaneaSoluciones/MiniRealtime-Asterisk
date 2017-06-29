@@ -1,46 +1,140 @@
-CREATE TABLE `sip_buddies` (
- `id` int(11) NOT NULL auto_increment,
- `name` varchar(80) NOT NULL,
- `callerid` varchar(80) default NULL,
- `defaultuser` varchar(80) NOT NULL,
- `regexten` varchar(80) NOT NULL,
- `secret` varchar(80) default NULL,
- `mailbox` varchar(50) default NULL,
- `accountcode` varchar(20) default NULL,
- `context` varchar(80) default NULL,
- `amaflags` varchar(7) default NULL,
- `callgroup` varchar(10) default NULL,
- `canreinvite` char(3) default 'yes',
- `defaultip` varchar(15) default NULL,
- `dtmfmode` varchar(7) default NULL,
- `fromuser` varchar(80) default NULL,
- `fromdomain` varchar(80) default NULL,
- `fullcontact` varchar(80) default NULL,
- `host` varchar(31) NOT NULL,
- `insecure` varchar(4) default NULL,
- `language` char(2) default NULL,
- `md5secret` varchar(80) default NULL,
- `nat` varchar(5) NOT NULL default 'no',
- `deny` varchar(95) default NULL,
- `permit` varchar(95) default NULL,
- `mask` varchar(95) default NULL,
- `pickupgroup` varchar(10) default NULL,
- `port` varchar(5) NOT NULL,
- `qualify` char(3) default NULL,
- `restrictcid` char(1) default NULL,
- `rtptimeout` char(3) default NULL,
- `rtpholdtimeout` char(3) default NULL,
- `type` varchar(6) NOT NULL default 'friend',
- `disallow` varchar(100) default 'all',
- `allow` varchar(100) default 'g729;ilbc;gsm;ulaw;alaw',
- `musiconhold` varchar(100) default NULL,
- `regseconds` int(11) NOT NULL default '0',
- `ipaddr` varchar(15) NOT NULL,
- `cancallforward` char(3) default 'yes',
- `lastms` int(11) NOT NULL,
- `useragent` char(255) default NULL,
- `regserver` varchar(100) default NULL,
- PRIMARY KEY  (`id`),
- UNIQUE KEY `name` (`name`),
- KEY `name_2` (`name`)
- ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+-- phpMyAdmin SQL Dump
+-- version 4.2.12deb2+deb8u2
+-- http://www.phpmyadmin.net
+--
+-- Servidor: localhost
+-- Tiempo de generación: 29-06-2017 a las 01:53:36
+-- Versión del servidor: 5.5.55-0+deb8u1
+-- Versión de PHP: 5.6.30-0+deb8u1
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Base de datos: `asterisk`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `sip_buddies`
+--
+
+CREATE TABLE IF NOT EXISTS `sip_buddies` (
+`id` int(11) NOT NULL,
+  `name` varchar(10) NOT NULL,
+  `ipaddr` varchar(15) DEFAULT NULL,
+  `port` int(5) DEFAULT NULL,
+  `regseconds` int(11) DEFAULT NULL,
+  `defaultuser` varchar(10) DEFAULT NULL,
+  `fullcontact` varchar(35) DEFAULT NULL,
+  `regserver` varchar(20) DEFAULT NULL,
+  `useragent` varchar(20) DEFAULT NULL,
+  `lastms` int(11) DEFAULT NULL,
+  `host` varchar(40) DEFAULT NULL,
+  `type` enum('friend','user','peer') DEFAULT NULL,
+  `context` varchar(40) DEFAULT NULL,
+  `permit` varchar(40) DEFAULT NULL,
+  `deny` varchar(40) DEFAULT NULL,
+  `secret` varchar(40) DEFAULT NULL,
+  `md5secret` varchar(40) DEFAULT NULL,
+  `remotesecret` varchar(40) DEFAULT NULL,
+  `transport` enum('udp','tcp','udp,tcp','tcp,udp') DEFAULT NULL,
+  `dtmfmode` enum('rfc2833','info','shortinfo','inband','auto') DEFAULT NULL,
+  `directmedia` enum('yes','no','nonat','update') DEFAULT NULL,
+  `nat` enum('force_rport,comedia','no','never','route') DEFAULT NULL,
+  `callgroup` varchar(40) DEFAULT NULL,
+  `pickupgroup` varchar(40) DEFAULT NULL,
+  `language` varchar(40) DEFAULT NULL,
+  `allow` varchar(40) DEFAULT NULL,
+  `disallow` varchar(40) DEFAULT NULL,
+  `insecure` varchar(40) DEFAULT NULL,
+  `trustrpid` enum('yes','no') DEFAULT NULL,
+  `progressinband` enum('yes','no','never') DEFAULT NULL,
+  `promiscredir` enum('yes','no') DEFAULT NULL,
+  `useclientcode` enum('yes','no') DEFAULT NULL,
+  `accountcode` varchar(40) DEFAULT NULL,
+  `setvar` varchar(40) DEFAULT NULL,
+  `callerid` varchar(40) DEFAULT NULL,
+  `amaflags` varchar(40) DEFAULT NULL,
+  `callcounter` enum('yes','no') DEFAULT NULL,
+  `busylevel` int(11) DEFAULT NULL,
+  `allowoverlap` enum('yes','no') DEFAULT NULL,
+  `allowsubscribe` enum('yes','no') DEFAULT NULL,
+  `videosupport` enum('yes','no') DEFAULT NULL,
+  `maxcallbitrate` int(11) DEFAULT NULL,
+  `rfc2833compensate` enum('yes','no') DEFAULT NULL,
+  `mailbox` varchar(40) DEFAULT NULL,
+  `session-timers` enum('accept','refuse','originate') DEFAULT NULL,
+  `session-expires` int(11) DEFAULT NULL,
+  `session-minse` int(11) DEFAULT NULL,
+  `session-refresher` enum('uac','uas') DEFAULT NULL,
+  `t38pt_usertpsource` varchar(40) DEFAULT NULL,
+  `regexten` varchar(40) DEFAULT NULL,
+  `fromdomain` varchar(40) DEFAULT NULL,
+  `fromuser` varchar(40) DEFAULT NULL,
+  `qualify` varchar(40) DEFAULT NULL,
+  `defaultip` varchar(40) DEFAULT NULL,
+  `rtptimeout` int(11) DEFAULT NULL,
+  `rtpholdtimeout` int(11) DEFAULT NULL,
+  `sendrpid` enum('yes','no') DEFAULT NULL,
+  `outboundproxy` varchar(40) DEFAULT NULL,
+  `callbackextension` varchar(40) DEFAULT NULL,
+  `registertrying` enum('yes','no') DEFAULT NULL,
+  `timert1` int(11) DEFAULT NULL,
+  `timerb` int(11) DEFAULT NULL,
+  `qualifyfreq` int(11) DEFAULT NULL,
+  `constantssrc` enum('yes','no') DEFAULT NULL,
+  `contactpermit` varchar(40) DEFAULT NULL,
+  `contactdeny` varchar(40) DEFAULT NULL,
+  `usereqphone` enum('yes','no') DEFAULT NULL,
+  `textsupport` enum('yes','no') DEFAULT NULL,
+  `faxdetect` enum('yes','no') DEFAULT NULL,
+  `buggymwi` enum('yes','no') DEFAULT NULL,
+  `auth` varchar(40) DEFAULT NULL,
+  `fullname` varchar(40) DEFAULT NULL,
+  `trunkname` varchar(40) DEFAULT NULL,
+  `cid_number` varchar(40) DEFAULT NULL,
+  `callingpres` enum('allowed_not_screened','allowed_passed_screen','allowed_failed_screen','allowed','prohib_not_screened','prohib_passed_screen','prohib_failed_screen','prohib') DEFAULT NULL,
+  `mohinterpret` varchar(40) DEFAULT NULL,
+  `mohsuggest` varchar(40) DEFAULT NULL,
+  `parkinglot` varchar(40) DEFAULT NULL,
+  `hasvoicemail` enum('yes','no') DEFAULT NULL,
+  `subscribemwi` enum('yes','no') DEFAULT NULL,
+  `vmexten` varchar(40) DEFAULT NULL,
+  `autoframing` enum('yes','no') DEFAULT NULL,
+  `rtpkeepalive` int(11) DEFAULT NULL,
+  `call-limit` int(11) DEFAULT NULL,
+  `g726nonstandard` enum('yes','no') DEFAULT NULL,
+  `ignoresdpversion` enum('yes','no') DEFAULT NULL,
+  `allowtransfer` enum('yes','no') DEFAULT NULL,
+  `dynamic` enum('yes','no') DEFAULT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `sip_buddies`
+--
+
+INSERT INTO `sip_buddies` (`id`, `name`, `ipaddr`, `port`, `regseconds`, `defaultuser`, `fullcontact`, `regserver`, `useragent`, `lastms`, `host`, `type`, `context`, `permit`, `deny`, `secret`, `md5secret`, `remotesecret`, `transport`, `dtmfmode`, `directmedia`, `nat`, `callgroup`, `pickupgroup`, `language`, `allow`, `disallow`, `insecure`, `trustrpid`, `progressinband`, `promiscredir`, `useclientcode`, `accountcode`, `setvar`, `callerid`, `amaflags`, `callcounter`, `busylevel`, `allowoverlap`, `allowsubscribe`, `videosupport`, `maxcallbitrate`, `rfc2833compensate`, `mailbox`, `session-timers`, `session-expires`, `session-minse`, `session-refresher`, `t38pt_usertpsource`, `regexten`, `fromdomain`, `fromuser`, `qualify`, `defaultip`, `rtptimeout`, `rtpholdtimeout`, `sendrpid`, `outboundproxy`, `callbackextension`, `registertrying`, `timert1`, `timerb`, `qualifyfreq`, `constantssrc`, `contactpermit`, `contactdeny`, `usereqphone`, `textsupport`, `faxdetect`, `buggymwi`, `auth`, `fullname`, `trunkname`, `cid_number`, `callingpres`, `mohinterpret`, `mohsuggest`, `parkinglot`, `hasvoicemail`, `subscribemwi`, `vmexten`, `autoframing`, `rtpkeepalive`, `call-limit`, `g726nonstandard`, `ignoresdpversion`, `allowtransfer`, `dynamic`) VALUES
+(1, '101', '192.168.1.137', 5060, 1498694069, '101', 'sip:101@192.168.1.137:5060', '', 'Yealink SIP-T21P_E2 ', 147, 'dynamic', 'friend', 'internas', NULL, NULL, '101', NULL, NULL, 'udp', 'rfc2833', 'yes', 'force_rport,comedia', '1', '1', 'es', 'alaw,ulaw,g729', '', NULL, NULL, NULL, NULL, NULL, '101', NULL, '101', NULL, NULL, NULL, NULL, NULL, 'yes', 500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '5000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 10, NULL, NULL, 'yes', 'yes'),
+(2, '102', '192.168.1.133', 53896, 1498693937, '102', 'sip:102@192.168.1.133:53896^3Brinst', '', 'X-Lite release 4.9.8', 0, 'dynamic', 'friend', 'internas', NULL, NULL, '102', NULL, NULL, 'udp', 'rfc2833', 'yes', 'force_rport,comedia', NULL, NULL, NULL, 'alaw,ulaw', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '102', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '102', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'yes');
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `sip_buddies`
+--
+ALTER TABLE `sip_buddies`
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `name` (`name`), ADD KEY `ipaddr` (`ipaddr`,`port`), ADD KEY `host` (`host`,`port`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `sip_buddies`
+--
+ALTER TABLE `sip_buddies`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;

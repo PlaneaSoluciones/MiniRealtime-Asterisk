@@ -1,21 +1,57 @@
-CREATE TABLE `extensions` (
- `id` int(11) NOT NULL auto_increment,
- `context` varchar(20) NOT NULL default '',
- `exten` varchar(20) NOT NULL default '',
- `priority` tinyint(4) NOT NULL default '0',
- `app` varchar(20) NOT NULL default '',
- `appdata` varchar(128) NOT NULL default '',
- PRIMARY KEY  (`context`,`exten`,`priority`),
- KEY `id` (`id`)
- ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+-- phpMyAdmin SQL Dump
+-- version 4.2.12deb2+deb8u2
+-- http://www.phpmyadmin.net
+--
+-- Servidor: localhost
+-- Tiempo de generación: 29-06-2017 a las 01:54:18
+-- Versión del servidor: 5.5.55-0+deb8u1
+-- Versión de PHP: 5.6.30-0+deb8u1
 
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
- insert  into `extensions`(`context`,`exten`,`priority`,`app`,`appdata`)
-  values
-  ('internas','_XXX',1,'Dial','SIP/${EXTEN}|30'),
-  ('internas','_XXX',2,'VoiceMail','${EXTEN}@internas'),
-  ('internas','_XXX',3,'Hangup',''),
-  ('internas','_9X.',1,'Dial','SIP/${EXTEN:1}@deltathree'),
-  ('internas','_*0',1,'VoiceMailMain','${CALLERID(num)}@internas'),
-  ('internas','12127777777',1,'Queue','my_queue'),
-  ('internas','12129999999',1,'MeetMe','my_conf');
+--
+-- Base de datos: `asterisk`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `extensions`
+--
+
+CREATE TABLE IF NOT EXISTS `extensions` (
+`id` int(11) NOT NULL,
+  `context` varchar(20) NOT NULL DEFAULT '',
+  `exten` varchar(20) NOT NULL DEFAULT '',
+  `priority` tinyint(4) NOT NULL DEFAULT '0',
+  `app` varchar(20) NOT NULL DEFAULT '',
+  `appdata` varchar(128) NOT NULL DEFAULT ''
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `extensions`
+--
+
+INSERT INTO `extensions` (`id`, `context`, `exten`, `priority`, `app`, `appdata`) VALUES
+(1, 'internas', '_XXX', 1, 'Dial', 'SIP/${EXTEN}');
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `extensions`
+--
+ALTER TABLE `extensions`
+ ADD PRIMARY KEY (`context`,`exten`,`priority`), ADD KEY `id` (`id`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `extensions`
+--
+ALTER TABLE `extensions`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
