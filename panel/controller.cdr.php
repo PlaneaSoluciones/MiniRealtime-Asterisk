@@ -30,7 +30,6 @@ function showlist(){
         echo '<td>'.$data['dst'].'</td>';
         echo '<td>'.$data['duration'].'</td>';
         echo '<td>'.$data['disposition'].'</td>';
-        echo '<td></td>';
       echo '</tr>';
     }
     ?>
