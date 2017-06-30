@@ -293,6 +293,16 @@ function edit($id, $postType){
 }
 
 function addmembers($nameq) {
+  if ($postType == "storemem"){
+    $addname   = (isset($_POST['addname'])  ? $_POST['addname'] : null);
+
+    if ($addname != null){ // ADD NEW ENTRY
+       $query="insert into queue_members (membername, queue_name) values ('$addname', '$nameq')";
+       echo $query;
+       db::getInstance()->query($query);
+    }
+  }
+
   if (isset ($nameq)){
     $query="select uniqueid, membername from queue_members where queue_name = $nameq";
     $datamem = db::getInstance()->query($query);
@@ -315,8 +325,8 @@ function addmembers($nameq) {
     <form action="" method="post" class="form">
       <fieldset>
         <legend>Miembro</legend>
-          <label for="name">Miembro</label>
-          <input type="text" name="name" id="name" placeholder="101">
+          <label for="addname">Miembro</label>
+          <input type="text" name="addname" id="addname" placeholder="101">
 
           <input type="hidden" name="type" value="storemem">
           <input type="submit" value="Enviar">
