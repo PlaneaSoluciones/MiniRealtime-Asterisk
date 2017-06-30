@@ -44,13 +44,14 @@
 // setinterfacevar
 
 $nameq   = (isset($_REQUEST['nameq'])   ? $_REQUEST['nameq'] : null);
+$typemem   = (isset($_POST['typemem'])  ? $_POST['typemem'] : null);
 
 switch ($view) {
     case "add":
         edit(null, $type);
         break;
     case "edit":
-        edit($id, $type);
+        edit($id, $typemem);
         break;
     case "addmem":
         addmembers($nameq);
@@ -292,7 +293,7 @@ function edit($id, $postType){
   }
 }
 
-function addmembers($nameq) {
+function addmembers($nameq, $postType) {
   if ($postType == "storemem"){
     $addname   = (isset($_POST['addname'])  ? $_POST['addname'] : null);
 
