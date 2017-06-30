@@ -316,7 +316,7 @@ function addmembers($nameq) {
       <fieldset>
         <legend>Miembro</legend>
           <label for="name">Miembro</label>
-          <input type="text" name="name" id="name" placeholder="101" value="<?php echo $member; ?>">
+          <input type="text" name="name" id="name" placeholder="101">
 
           <input type="hidden" name="type" value="storemem">
           <input type="submit" value="Enviar">
