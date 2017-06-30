@@ -16,10 +16,10 @@ switch ($view) {
 }
 
 function remove($id) {
-  $query="DELETE FROM queues_table WHERE id=$id";
+  $query="DELETE FROM meetme WHERE id=$id";
   db::getInstance()->query($query);
 
-  header('Location: ?module=queues');
+  header('Location: ?module=meetme');
   exit();
 }
 
