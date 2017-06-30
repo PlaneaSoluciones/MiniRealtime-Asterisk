@@ -44,7 +44,7 @@
 // setinterfacevar
 
 $nameq   = (isset($_POST['nameq'])   ? $_POST['nameq'] : null);
-echo $nameq;
+echo "name".$nameq;
 
 switch ($view) {
     case "add":
