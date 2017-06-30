@@ -300,7 +300,6 @@ function addmembers($nameq, $postType) {
 
     if ($addname != null){ // ADD NEW ENTRY
        $query="insert into queue_members (membername, queue_name) values ('$addname', '$nameq')";
-       echo $query;
        db::getInstance()->query($query);
     }
   }
