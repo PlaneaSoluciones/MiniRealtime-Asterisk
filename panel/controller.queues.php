@@ -294,6 +294,7 @@ function edit($id, $postType){
 }
 
 function addmembers($nameq, $postType) {
+  echo "post".$postType
   if ($postType == "storemem"){
     $addname   = (isset($_POST['addname'])  ? $_POST['addname'] : null);
     echo $addname;
