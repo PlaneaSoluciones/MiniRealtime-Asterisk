@@ -43,6 +43,7 @@
 // -ringinuse				    yes/no
 // setinterfacevar
 
+$nameq   = (isset($_POST['nameq'])   ? $_POST['nameq'] : null);
 
 switch ($view) {
     case "add":
