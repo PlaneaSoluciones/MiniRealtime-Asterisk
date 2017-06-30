@@ -284,6 +284,7 @@ function edit($id, $postType){
 function addmembers($nameq) {
   if (isset ($nameq)){
     $query="select id, membername from queues_members where queue_name = $nameq";
+    echo $query;
     $datamem = db::getInstance()->query($query);
     ?>
     <table>
@@ -295,7 +296,7 @@ function addmembers($nameq) {
     foreach ($datamem as $data) {
       echo '<tr>';
         echo '<td>'.$data['membername'].'</td>';
-        echo '<td><a href="?module='.$module.'&view=delmember&id='.$data['id'].'">Eliminar</a></td>';
+        echo '<td><a href="?module='.$module.'&view=delmember&idmem='.$data['id'].'">Eliminar</a></td>';
       echo '</tr>';
     }
     ?>
