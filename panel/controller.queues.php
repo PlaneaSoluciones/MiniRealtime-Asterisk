@@ -45,7 +45,6 @@
 
 $nameq   = (isset($_REQUEST['nameq'])   ? $_REQUEST['nameq'] : null);
 $typemem   = (isset($_POST['typemem'])  ? $_POST['typemem'] : null);
-echo $typemem."<br>";
 
 switch ($view) {
     case "add":
@@ -295,10 +294,9 @@ function edit($id, $postType){
 }
 
 function addmembers($nameq, $postType) {
-  echo $postType."<br>";
+  global $module;
   if ($postType == "storemem"){
     $addname   = (isset($_POST['addname'])  ? $_POST['addname'] : null);
-    echo $addname."add<br>";
 
     if ($addname != null){ // ADD NEW ENTRY
        $query="insert into queue_members (membername, queue_name) values ('$addname', '$nameq')";
