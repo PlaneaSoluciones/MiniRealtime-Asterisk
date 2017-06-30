@@ -105,7 +105,7 @@ function remove($id) {
   exit();
 }
 
-function remove($id) {
+function removemember($id) {
   $query="DELETE FROM queue_members WHERE uniqueid=$id";
   db::getInstance()->query($query);
 
