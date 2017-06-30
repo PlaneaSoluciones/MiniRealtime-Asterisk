@@ -7,6 +7,9 @@ switch ($view) {
     case "edit":
         edit($id, $type);
         break;
+    case "delete":
+        remove($id);
+        break;
     default: // List
         showlist();
         break;
@@ -15,7 +18,7 @@ switch ($view) {
 function showlist(){
   global $db, $module;
   // Mostrar listado
-  $query="select id, name, callerid, secret from sip_buddies";
+  $query="SELECT id, name, callerid, secret FROM sip_buddies";
   $dbdata = db::getInstance()->query($query);
 
   if (isset ($dbdata)){
@@ -42,6 +45,14 @@ function showlist(){
     </table>
     <?php
   }
+}
+
+function remove($id) {
+  $query="DELETE FROM sip_buddies WHERE id=$id";
+  db::getInstance()->query($query);
+
+  header('Location: ?module=sip_buddies');
+  exit();
 }
 
 function edit($id, $postType){
