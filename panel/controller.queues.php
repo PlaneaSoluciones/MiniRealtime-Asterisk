@@ -45,17 +45,16 @@
 
 $nameq   = (isset($_REQUEST['nameq'])   ? $_REQUEST['nameq'] : null);
 $typemem   = (isset($_POST['typemem'])  ? $_POST['typemem'] : null);
-echo $typemem;
 
 switch ($view) {
     case "add":
         edit(null, $type);
         break;
     case "edit":
-        edit($id, $typemem);
+        edit($id, $type);
         break;
     case "addmem":
-        addmembers($nameq);
+        addmembers($nameq, $typemem);
         break;
     case "delete":
         remove($id);
