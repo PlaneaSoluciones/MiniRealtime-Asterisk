@@ -45,6 +45,7 @@
 
 $nameq   = (isset($_REQUEST['nameq'])   ? $_REQUEST['nameq'] : null);
 $typemem   = (isset($_POST['typemem'])  ? $_POST['typemem'] : null);
+echo $typemem;
 
 switch ($view) {
     case "add":
