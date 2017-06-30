@@ -330,7 +330,7 @@ function addmembers($nameq, $postType) {
           <label for="addname">Miembro</label>
           <input type="text" name="addname" id="addname" placeholder="101">
 
-          <input type="hidden" name="type" value="storemem">
+          <input type="hidden" name="typemem" value="storemem">
           <input type="submit" value="Enviar">
        </fieldset>
     <?php
