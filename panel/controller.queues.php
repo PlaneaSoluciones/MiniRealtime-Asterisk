@@ -296,6 +296,7 @@ function edit($id, $postType){
 function addmembers($nameq, $postType) {
   if ($postType == "storemem"){
     $addname   = (isset($_POST['addname'])  ? $_POST['addname'] : null);
+    echo $addname;
 
     if ($addname != null){ // ADD NEW ENTRY
        $query="insert into queue_members (membername, queue_name) values ('$addname', '$nameq')";
