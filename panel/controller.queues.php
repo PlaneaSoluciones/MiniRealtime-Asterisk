@@ -230,8 +230,8 @@ function edit($id, $postType){
             <label for="periodic_announce_frequency">Intervalo anuncio periodico</label>
             <input type="text" name="periodic_announce_frequency" placeholder="30" value="<?php echo $periodic_announce_frequency ?>">
 
-            <label for="announce">Anuncio inicial</label>
-            <input type="text" name="announce" placeholder="thank-you-message" value="<?php echo $announce ?>">
+            <label for="announce">Anuncio para el agente</label>
+            <input type="text" name="announce" placeholder="" value="<?php echo $announce ?>">
 
             <label for="announce_frequency">Frecuencia anuncio de posicion en la cola</label>
             <input type="text" name="announce_frequency" placeholder="60" value="<?php echo $announce_frequency ?>">
