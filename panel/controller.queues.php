@@ -299,7 +299,7 @@ function addmembers($nameq, $postType) {
     $addname   = (isset($_POST['addname'])  ? $_POST['addname'] : null);
 
     if ($addname != null){ // ADD NEW ENTRY
-       $query="insert into queue_members (membername, queue_name) values ('$addname', '$nameq')";
+       $query="insert into queue_members (membername, queue_name) values ('local/$addname@internas', '$nameq')";
        db::getInstance()->query($query);
     }
   }
