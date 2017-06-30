@@ -44,8 +44,8 @@
 // setinterfacevar
 
 
-$nameq   = (isset($_POST['nameq'])   ? $_POST['nameq'] : null);
-$idmem   = (isset($_GET['idmem'])   ? $_POST['idmem'] : null);
+$nameq   = (isset($_REQUEST['nameq'])   ? $_REQUEST['nameq'] : null);
+$idmem   = (isset($_GET['idmem'])   ? $_GET['idmem'] : null);
 $typemem   = (isset($_POST['typemem'])  ? $_POST['typemem'] : null);
 
 
@@ -87,7 +87,7 @@ function showlist(){
     foreach ($dbdata as $data) {
       echo '<tr>';
         echo '<td>'.$data['name'].'</td>';
-        echo '<td><a href="?module='.$module.'&view=addmem&id='.$data['id'].'&nameq='.$data['name'].'">Añadir miembros</a> | <a href="?module='.$module.'&view=edit&id='.$data['id'].'">Editar</a> | <a href="?module='.$module.'&view=delete&id='.$data['id'].'">Eliminar</a></td>';
+        echo '<td><a href="?module='.$module.'&view=addmem&id='.$data['id'].'&nameq='.$data['name'].'">Miembros</a> | <a href="?module='.$module.'&view=edit&id='.$data['id'].'">Editar</a> | <a href="?module='.$module.'&view=delete&id='.$data['id'].'">Eliminar</a></td>';
       echo '</tr>';
     }
     ?>
