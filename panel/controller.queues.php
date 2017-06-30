@@ -43,6 +43,7 @@
 // -ringinuse				    yes/no
 // setinterfacevar
 
+$nameq   = (isset($_POST['nameq'])   ? $_POST['nameq'] : null);
 
 switch ($view) {
     case "add":
@@ -76,7 +77,7 @@ function showlist(){
     foreach ($dbdata as $data) {
       echo '<tr>';
         echo '<td>'.$data['name'].'</td>';
-        echo '<td><a href="?module='.$module.'&view=addmembers&nameq='.$data['name'].'">Añadir miembros</a> | <a href="?module='.$module.'&view=edit&id='.$data['id'].'">Editar</a> | <a href="?module='.$module.'&view=delete&id='.$data['id'].'">Eliminar</a></td>';
+        echo '<td><a href="?module='.$module.'&view=addmembers&id='.$data['id'].'&nameq='.$data['name'].'">Añadir miembros</a> | <a href="?module='.$module.'&view=edit&id='.$data['id'].'">Editar</a> | <a href="?module='.$module.'&view=delete&id='.$data['id'].'">Eliminar</a></td>';
       echo '</tr>';
     }
     ?>
@@ -283,6 +284,7 @@ function edit($id, $postType){
 function addmembers($nameq) {
   if (isset ($nameq)){
     $query="select id, membername from queues_members where queue_name = $nameq";
+    echo $query;
     $datamem = db::getInstance()->query($query);
     ?>
     <table>
@@ -294,14 +296,23 @@ function addmembers($nameq) {
     foreach ($datamem as $data) {
       echo '<tr>';
         echo '<td>'.$data['membername'].'</td>';
-        echo '<td><a href="?module='.$module.'&view=delmember&id='.$data['id'].'">Eliminar</a></td>';
+        echo '<td><a href="?module='.$module.'&view=delmember&idmem='.$data['id'].'">Eliminar</a></td>';
       echo '</tr>';
     }
     ?>
     </table>
+
+    <form action="" method="post" class="form">
+      <fieldset>
+        <legend>Miembro</legend>
+          <label for="name">Miembro</label>
+          <input type="text" name="name" id="name" placeholder="101" value="<?php echo $member; ?>">
+
+          <input type="hidden" name="type" value="storemem">
+          <input type="submit" value="Enviar">
+       </fieldset>
     <?php
   }
-
-  }
+}
 
  ?>
