@@ -43,8 +43,11 @@
 // -ringinuse				    yes/no
 // setinterfacevar
 
+
 $nameq   = (isset($_POST['nameq'])   ? $_POST['nameq'] : null);
 $idmem   = (isset($_GET['idmem'])   ? $_POST['idmem'] : null);
+$typemem   = (isset($_POST['typemem'])  ? $_POST['typemem'] : null);
+
 
 switch ($view) {
     case "add":
@@ -54,7 +57,7 @@ switch ($view) {
         edit($id, $type);
         break;
     case "addmem":
-        addmembers($nameq);
+        addmembers($nameq, $typemem);
         break;
     case "delete":
         remove($id);
@@ -304,10 +307,19 @@ function edit($id, $postType){
   }
 }
 
-function addmembers($nameq) {
+function addmembers($nameq, $postType) {
+  global $module;
+  if ($postType == "storemem"){
+    $addname   = (isset($_POST['addname'])  ? $_POST['addname'] : null);
+
+    if ($addname != null){ // ADD NEW ENTRY
+       $query="insert into queue_members (membername, queue_name) values ('local/$addname@internas', '$nameq')";
+       db::getInstance()->query($query);
+    }
+  }
+
   if (isset ($nameq)){
-    $query="select id, membername from queues_members where queue_name = $nameq";
-    echo $query;
+    $query="select uniqueid, membername from queue_members where queue_name = $nameq";
     $datamem = db::getInstance()->query($query);
     ?>
     <table>
@@ -316,10 +328,10 @@ function addmembers($nameq) {
         <th></th>
       </tr>
     <?php
-    foreach ($datamem as $data) {
+    foreach ($datamem as $dmem) {
       echo '<tr>';
-        echo '<td>'.$data['membername'].'</td>';
-        echo '<td><a href="?module='.$module.'&view=delmember&idmem='.$data['id'].'">Eliminar</a></td>';
+        echo '<td>'.$dmem['membername'].'</td>';
+        echo '<td><a href="?module='.$module.'&view=delmember&idmem='.$dmem['uniqueid'].'">Eliminar</a></td>';
       echo '</tr>';
     }
     ?>
@@ -328,10 +340,10 @@ function addmembers($nameq) {
     <form action="" method="post" class="form">
       <fieldset>
         <legend>Miembro</legend>
-          <label for="name">Miembro</label>
-          <input type="text" name="name" id="name" placeholder="101" value="<?php echo $member; ?>">
+          <label for="addname">Miembro</label>
+          <input type="text" name="addname" id="addname" placeholder="101">
 
-          <input type="hidden" name="type" value="storemem">
+          <input type="hidden" name="typemem" value="storemem">
           <input type="submit" value="Enviar">
        </fieldset>
     <?php
