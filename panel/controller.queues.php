@@ -300,9 +300,18 @@ function addmembers($nameq) {
     }
     ?>
     </table>
+
+    <form action="" method="post" class="form">
+      <fieldset>
+        <legend>Miembro</legend>
+          <label for="name">Miembro</label>
+          <input type="text" name="name" id="name" placeholder="101" value="<?php echo $member; ?>">
+
+          <input type="hidden" name="type" value="storemem">
+          <input type="submit" value="Enviar">
+       </fieldset>
     <?php
   }
-
-  }
+}
 
  ?>
