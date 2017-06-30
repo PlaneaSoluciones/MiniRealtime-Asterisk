@@ -53,7 +53,7 @@ switch ($view) {
     case "edit":
         edit($id, $type);
         break;
-    case "addmembers":
+    case "addmem":
         addmembers($nameq);
         break;
     case "delete":
@@ -81,7 +81,7 @@ function showlist(){
     foreach ($dbdata as $data) {
       echo '<tr>';
         echo '<td>'.$data['name'].'</td>';
-        echo '<td><a href="?module='.$module.'&view=addmembers&id='.$data['id'].'&nameq='.$data['name'].'">Añadir miembros</a> | <a href="?module='.$module.'&view=edit&id='.$data['id'].'">Editar</a> | <a href="?module='.$module.'&view=delete&id='.$data['id'].'">Eliminar</a></td>';
+        echo '<td><a href="?module='.$module.'&view=addmem&id='.$data['id'].'&nameq='.$data['name'].'">Añadir miembros</a> | <a href="?module='.$module.'&view=edit&id='.$data['id'].'">Editar</a> | <a href="?module='.$module.'&view=delete&id='.$data['id'].'">Eliminar</a></td>';
       echo '</tr>';
     }
     ?>
