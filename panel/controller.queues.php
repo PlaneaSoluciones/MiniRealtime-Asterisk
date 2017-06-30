@@ -303,7 +303,5 @@ function addmembers($nameq) {
   }
 
   }
-}
-}
 
  ?>
