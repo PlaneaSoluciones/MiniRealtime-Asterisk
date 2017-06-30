@@ -51,6 +51,9 @@ switch ($view) {
     case "edit":
         edit($id, $type);
         break;
+    case "addmembers":
+        addmembers($nameq);
+        break;
     default: // List
         showlist();
         break;
@@ -73,7 +76,7 @@ function showlist(){
     foreach ($dbdata as $data) {
       echo '<tr>';
         echo '<td>'.$data['name'].'</td>';
-        echo '<td><a href="?module='.$module.'&view=edit&id='.$data['id'].'">Editar</a> | <a href="?module='.$module.'&view=delete&id='.$data['id'].'">Eliminar</a></td>';
+        echo '<td><a href="?module='.$module.'&view=addmembers&nameq='.$data['name'].'">Añadir miembros</a> | <a href="?module='.$module.'&view=edit&id='.$data['id'].'">Editar</a> | <a href="?module='.$module.'&view=delete&id='.$data['id'].'">Eliminar</a></td>';
       echo '</tr>';
     }
     ?>
@@ -124,8 +127,6 @@ function edit($id, $postType){
       db::getInstance()->query($query);
       $query="update queues_table set queue_callswaiting = '$queue_callswaiting', queue_holdtime = '$queue_holdtime', queue_minutes = '$queue_minutes', queue_seconds = '$queue_seconds', queue_lessthan = '$queue_lessthan', queue_thankyou = '$queue_thankyou', queue_reporthold = '$queue_reporthold' where id = '$id'";
       db::getInstance()->query($query);
-
-
     }
 
     header('Location: ?module=queues');
@@ -276,6 +277,31 @@ function edit($id, $postType){
         </fieldset>
       </form>
     <?php
+  }
+}
+
+function addmembers($nameq) {
+  if (isset ($nameq)){
+    $query="select id, membername from queues_members where queue_name = $nameq";
+    $datamem = db::getInstance()->query($query);
+    ?>
+    <table>
+      <tr>
+        <th>Miembro</th>
+        <th></th>
+      </tr>
+    <?php
+    foreach ($datamem as $data) {
+      echo '<tr>';
+        echo '<td>'.$data['membername'].'</td>';
+        echo '<td><a href="?module='.$module.'&view=delmember&id='.$data['id'].'">Eliminar</a></td>';
+      echo '</tr>';
+    }
+    ?>
+    </table>
+    <?php
+  }
+
   }
 }
 
