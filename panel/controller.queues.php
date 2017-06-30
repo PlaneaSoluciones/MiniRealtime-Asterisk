@@ -43,7 +43,7 @@
 // -ringinuse				    yes/no
 // setinterfacevar
 
-$nameq   = (isset($_POST['nameq'])   ? $_POST['nameq'] : null);
+$nameq   = (isset($_REQUEST['nameq'])   ? $_REQUEST['nameq'] : null);
 echo "name".$nameq;
 
 switch ($view) {
