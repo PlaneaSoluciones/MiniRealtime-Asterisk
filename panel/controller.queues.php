@@ -295,6 +295,7 @@ function edit($id, $postType){
 function addmembers($nameq) {
   if (isset ($nameq)){
     $query="select id, membername from queues_members where queue_name = $nameq";
+    echo $query;
     $datamem = db::getInstance()->query($query);
     ?>
     <table>
