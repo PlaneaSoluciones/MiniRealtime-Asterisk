@@ -7,9 +7,20 @@ switch ($view) {
     case "edit":
         edit($id, $type);
         break;
+    case "delete":
+        remove($id);
+        break;
     default: // List
         showlist();
         break;
+}
+
+function remove($id) {
+  $query="DELETE FROM queues_table WHERE id=$id";
+  db::getInstance()->query($query);
+
+  header('Location: ?module=queues');
+  exit();
 }
 
 function showlist(){
@@ -17,7 +28,7 @@ function showlist(){
   // Getting element list
   $query="select id, confno, pin from meetme";
   $dbdata = db::getInstance()->query($query);
-  // Showing HTML table list 
+  // Showing HTML table list
   if (isset ($dbdata)){
     ?>
     <table>

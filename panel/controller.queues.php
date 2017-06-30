@@ -56,6 +56,9 @@ switch ($view) {
     case "addmembers":
         addmembers($nameq);
         break;
+    case "delete":
+        remove($id);
+        break;
     default: // List
         showlist();
         break;
@@ -86,6 +89,14 @@ function showlist(){
     <?php
   }
 
+}
+
+function remove($id) {
+  $query="DELETE FROM queues_table WHERE id=$id";
+  db::getInstance()->query($query);
+
+  header('Location: ?module=queues');
+  exit();
 }
 
 function edit($id, $postType){
