@@ -44,7 +44,7 @@
 // setinterfacevar
 
 $nameq   = (isset($_POST['nameq'])   ? $_POST['nameq'] : null);
-echo $nameq;
+$idmem   = (isset($_GET['idmem'])   ? $_POST['idmem'] : null);
 
 switch ($view) {
     case "add":
@@ -58,6 +58,9 @@ switch ($view) {
         break;
     case "delete":
         remove($id);
+        break;
+    case "delmember":
+        removemember($idmem);
         break;
     default: // List
         showlist();
@@ -93,6 +96,14 @@ function showlist(){
 
 function remove($id) {
   $query="DELETE FROM queues_table WHERE id=$id";
+  db::getInstance()->query($query);
+
+  header('Location: ?module=queues');
+  exit();
+}
+
+function remove($id) {
+  $query="DELETE FROM queue_members WHERE uniqueid=$id";
   db::getInstance()->query($query);
 
   header('Location: ?module=queues');
