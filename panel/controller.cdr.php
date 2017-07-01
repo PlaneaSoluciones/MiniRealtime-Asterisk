@@ -9,8 +9,8 @@ switch ($view) {
 function showlist(){
   global $db, $module;
   // Getting element list
-  $query="select calldate, src, dst, duration, disposition from cdr order by calldate desc limit 30";
-  $dbdata = db::getInstance()->query($query);
+//  $query="select calldate, src, dst, duration, disposition from cdr order by calldate desc limit 30";
+//  $dbdata = db::getInstance()->query($query);
   // Showing HTML table list
   if (isset ($dbdata)){
     ?>

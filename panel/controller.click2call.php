@@ -34,7 +34,7 @@ function call($ext1, $ext2){
     $strPriority = "1";
     #specify the maximum amount of retries
     $strMaxRetry = "2";
-
+/*
     $oSocket = fsockopen($strHost, 5038, $errnum, $errdesc) or die("Connection to host failed");
     fputs($oSocket, "Action: login\r\n");
     fputs($oSocket, "Events: off\r\n");
@@ -52,7 +52,7 @@ function call($ext1, $ext2){
     fclose($oSocket);
 
     echo "Llamando...";
-
+*/
   }else{
 
     // HTML form view

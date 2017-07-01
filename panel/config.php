@@ -1,6 +1,6 @@
 <?php
 
-  define('DBUSER','cursovoip');
-  define('DBPWD','123');
+  define('DBUSER','');
+  define('DBPWD','');
   define('DBHOST','localhost');
   define('DBNAME','asterisk');

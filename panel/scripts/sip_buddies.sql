@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 29-06-2017 a las 01:53:36
+-- Tiempo de generación: 01-07-2017 a las 22:45:50
 -- Versión del servidor: 5.5.55-0+deb8u1
 -- Versión de PHP: 5.6.30-0+deb8u1
 
@@ -109,15 +109,12 @@ CREATE TABLE IF NOT EXISTS `sip_buddies` (
   `ignoresdpversion` enum('yes','no') DEFAULT NULL,
   `allowtransfer` enum('yes','no') DEFAULT NULL,
   `dynamic` enum('yes','no') DEFAULT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `sip_buddies`
 --
 
-INSERT INTO `sip_buddies` (`id`, `name`, `ipaddr`, `port`, `regseconds`, `defaultuser`, `fullcontact`, `regserver`, `useragent`, `lastms`, `host`, `type`, `context`, `permit`, `deny`, `secret`, `md5secret`, `remotesecret`, `transport`, `dtmfmode`, `directmedia`, `nat`, `callgroup`, `pickupgroup`, `language`, `allow`, `disallow`, `insecure`, `trustrpid`, `progressinband`, `promiscredir`, `useclientcode`, `accountcode`, `setvar`, `callerid`, `amaflags`, `callcounter`, `busylevel`, `allowoverlap`, `allowsubscribe`, `videosupport`, `maxcallbitrate`, `rfc2833compensate`, `mailbox`, `session-timers`, `session-expires`, `session-minse`, `session-refresher`, `t38pt_usertpsource`, `regexten`, `fromdomain`, `fromuser`, `qualify`, `defaultip`, `rtptimeout`, `rtpholdtimeout`, `sendrpid`, `outboundproxy`, `callbackextension`, `registertrying`, `timert1`, `timerb`, `qualifyfreq`, `constantssrc`, `contactpermit`, `contactdeny`, `usereqphone`, `textsupport`, `faxdetect`, `buggymwi`, `auth`, `fullname`, `trunkname`, `cid_number`, `callingpres`, `mohinterpret`, `mohsuggest`, `parkinglot`, `hasvoicemail`, `subscribemwi`, `vmexten`, `autoframing`, `rtpkeepalive`, `call-limit`, `g726nonstandard`, `ignoresdpversion`, `allowtransfer`, `dynamic`) VALUES
-(1, '101', '192.168.1.137', 5060, 1498694069, '101', 'sip:101@192.168.1.137:5060', '', 'Yealink SIP-T21P_E2 ', 147, 'dynamic', 'friend', 'internas', NULL, NULL, '101', NULL, NULL, 'udp', 'rfc2833', 'yes', 'force_rport,comedia', '1', '1', 'es', 'alaw,ulaw,g729', '', NULL, NULL, NULL, NULL, NULL, '101', NULL, '101', NULL, NULL, NULL, NULL, NULL, 'yes', 500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '5000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 10, NULL, NULL, 'yes', 'yes'),
-(2, '102', '192.168.1.133', 53896, 1498693937, '102', 'sip:102@192.168.1.133:53896^3Brinst', '', 'X-Lite release 4.9.8', 0, 'dynamic', 'friend', 'internas', NULL, NULL, '102', NULL, NULL, 'udp', 'rfc2833', 'yes', 'force_rport,comedia', NULL, NULL, NULL, 'alaw,ulaw', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '102', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '102', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'yes');
 
 --
 -- Índices para tablas volcadas
@@ -137,4 +134,4 @@ ALTER TABLE `sip_buddies`
 -- AUTO_INCREMENT de la tabla `sip_buddies`
 --
 ALTER TABLE `sip_buddies`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
