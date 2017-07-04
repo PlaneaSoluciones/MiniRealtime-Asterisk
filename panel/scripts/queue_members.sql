@@ -33,9 +33,6 @@ CREATE TABLE IF NOT EXISTS `queue_members` (
 -- Volcado de datos para la tabla `queue_members`
 --
 
-INSERT INTO `queue_members` (`uniqueid`, `membername`, `queue_name`, `interface`, `penalty`, `paused`) VALUES
-
-
 --
 -- Índices para tablas volcadas
 --

@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `queues_table` (
 `id` int(11) NOT NULL,
   `name` varchar(128) NOT NULL,
   `musiconhold` varchar(128) DEFAULT NULL,
-  `announce` varchar(128) DEFAULT NULL,å
+  `announce` varchar(128) DEFAULT NULL,
   `context` varchar(128) DEFAULT NULL,
   `timeout` int(11) DEFAULT NULL,
   `monitor_join` tinyint(1) DEFAULT NULL,
