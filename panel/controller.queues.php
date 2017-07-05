@@ -178,15 +178,23 @@ function edit($id, $postType){
       $announce = $dbdata['announce'];
       $announce_frequency = $dbdata['announce_frequency'];
       $announce_holdtime = $dbdata['announce_holdtime'];
-      $queue_youarenext = $dbdata['queue_youarenext'];
-      $queue_thereare = $dbdata['queue_thereare'];
+      if ($dbdata['queue_youarenext'] == '') { $queue_youarenext = NULL; } else { $queue_youarenext = $dbdata['queue_youarenext'] };
+      if ($dbdata['queue_thereare'] == '') { $queue_thereare = NULL; } else { $queue_thereare = $dbdata['queue_thereare'] };
+      if ($dbdata['queue_callswaiting'] == '') { $queue_callswaiting = NULL; } else { $queue_callswaiting = $dbdata['queue_callswaiting'] };
+      if ($dbdata['queue_holdtime'] == '') { $queue_holdtime = NULL; } else { $queue_holdtime = $dbdata['queue_holdtime'] };
+      if ($dbdata['queue_minutes'] == '') { $queue_minutes = NULL; } else { $queue_minutes = $dbdata['queue_minutes'] };
+      if ($dbdata['queue_seconds'] == '') { $queue_seconds = NULL; } else { $queue_seconds = $dbdata['queue_seconds'] };
+      if ($dbdata['queue_lessthan'] == '') { $queue_lessthan = NULL; } else { $queue_lessthan = $dbdata['queue_lessthan'] };
+      if ($dbdata['queue_thankyou'] == '') { $queue_thankyou = NULL; } else { $queue_thankyou = $dbdata['queue_thankyou'] };
+      if ($dbdata['queue_reporthold'] == '') { $queue_reporthold = NULL; } else { $queue_reporthold = $dbdata['queue_reporthold'] };
+      /*$queue_thereare = $dbdata['queue_thereare'];
       $queue_callswaiting = $dbdata['queue_callswaiting'];
       $queue_holdtime = $dbdata['queue_holdtime'];
       $queue_minutes = $dbdata['queue_minutes'];
       $queue_seconds = $dbdata['queue_seconds'];
       $queue_lessthan = $dbdata['queue_lessthan'];
       $queue_thankyou = $dbdata['queue_thankyou'];
-      $queue_reporthold = $dbdata['queue_reporthold'];
+      $queue_reporthold = $dbdata['queue_reporthold'];*?
     }else{
       $name = null;
       $timeout = null;
