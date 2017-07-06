@@ -194,7 +194,7 @@ function edit($id, $postType){
       $queue_seconds = $dbdata['queue_seconds'];
       $queue_lessthan = $dbdata['queue_lessthan'];
       $queue_thankyou = $dbdata['queue_thankyou'];
-      $queue_reporthold = $dbdata['queue_reporthold'];*?
+      $queue_reporthold = $dbdata['queue_reporthold'];*/
     }else{
       $name = null;
       $timeout = null;
@@ -280,7 +280,7 @@ function edit($id, $postType){
             </select>
 
             <label for="queue_youarenext">Mensaje "Eres el siguiente"</label>
-            <input type="text" name="queue_youarenext" placeholder="queue_youarenext" value="<?php echo $queue_youarenext ?>">
+            <input type="text" name="queue_youarenext" placeholder="queue-youarenext" value="<?php echo $queue_youarenext ?>">
 
             <label for="queue_thereare">Mensaje "Hay"</label>
             <input type="text" name="queue_thereare" placeholder="queue_thereare" value="<?php echo $queue_thereare ?>">
