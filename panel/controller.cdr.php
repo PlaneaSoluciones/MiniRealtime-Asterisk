@@ -9,8 +9,8 @@ switch ($view) {
 function showlist(){
   global $db, $module;
   // Getting element list
-//  $query="select calldate, src, dst, duration, disposition from cdr order by calldate desc limit 30";
-//  $dbdata = db::getInstance()->query($query);
+  $query="SELECT calldate, src, dst, duration, billsec, disposition FROM cdr order by calldate desc limit 30";
+  $dbdata = db::getInstance()->query($query);
   // Showing HTML table list
   if (isset ($dbdata)){
     ?>
@@ -20,6 +20,7 @@ function showlist(){
         <th>Origen</th>
         <th>Destino</th>
         <th>Duracion</th>
+        <th>Tiempo Fac.</th>
         <th>Estado</th>
       </tr>
     <?php
@@ -29,6 +30,7 @@ function showlist(){
         echo '<td>'.$data['src'].'</td>';
         echo '<td>'.$data['dst'].'</td>';
         echo '<td>'.$data['duration'].'</td>';
+        echo '<td>'.$data['billsec'].'</td>';
         echo '<td>'.$data['disposition'].'</td>';
       echo '</tr>';
     }
